@@ -25,8 +25,7 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("Hi I'm @UserrTaggerBot I was created to search all contacts in chat.
-Merhaba! Grubunuzdaki Kullanıcıları Etiketlemek İçin Yaratıldım. Beni Grubunuza Ekleyin ve Gerisini Bana Bırakın.",
+  await event.reply("Hi I'm @UserrTaggerBot I was created to search all contacts in chat.\nMerhaba! Grubunuzdaki Kullanıcıları Etiketlemek İçin Yaratıldım. Beni Grubunuza Ekleyin ve Gerisini Bana Bırakın.",
                     buttons=(
                       [Button.url('➕Beni Bir Gruba Ekle➕', 'https://t.me/UserrTaggerBot?startgroup=a'),
                        Button.url('🎛️komutlar', 'https://t.me/UserrTagger/32'),
