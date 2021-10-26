@@ -25,23 +25,29 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("**Etiketleme Botu**, Grup veya kanaldaki neredeyse tüm üyelerden bahsedebilir ★\nDaha fazla bilgi için **/help**'i tıklayın.",
+  await event.reply("Hi I'm @UserTaggerBot I was created to search all contacts in chat.
+
+Merhaba! Grubunuzdaki Kullanıcıları Etiketlemek İçin Yaratıldım. Beni Grubunuza Ekleyin ve Gerisini Bana Bırakın.",
                     buttons=(
-                      [Button.url('🌟 Beni Bir Gruba Ekle', 'https://t.me/UtagOnline_bot?startgroup=a'),
-                      Button.url('music botu', 'https://t.me/esmermusic_bot'),
-                      Button.url('👮‍♂️ Sahibim', 'https://t.me/baykaoss')]
+                      [Button.url('➕Beni Bir Gruba Ekle➕', 'https://t.me/UserrTaggerBot?startgroup=a'),
+                       Button.url('🎛️komutlar', 'https://t.me/UserrTagger/32'),
+                      Button.url('📣resmi kanal', 'https://t.me/UserrTagger')]
                     ),
                     link_preview=False
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = """**UtagOnline Tag Bot'un Yardım Menüsü**\n\nKomut: /all \n  Bu komutu, başkalarına bahsetmek istediğiniz metinle birlikte kullanabilirsiniz. \n`Örnek: /all Günaydın!`  \nBu komutu yanıt olarak kullanabilirsiniz. herhangi bir mesaj Bot, yanıtlanan iletiye kullanıcıları etiketleyerek ve /bitir yazarak etiketleme işlemi biter.
-\nAdminleri etiketlemek için ise /admin \n komutunu kullanabilirsiniz sevgiler"""
+  helptext = """Nasıl Çalışırım:
+
+/utag <Mesajınız> - kullanıcıları etiketlerim.
+/atag <Mesajınız> - Sadece yöneticileri etiketlerim.
+/cancel@UserTaggerBot - Etiket işlemini iptal ederim.
+❕ Yalnızca yöneticileri bu komutları kullanabilir."""
   await event.reply(helptext,
                     buttons=(
-                      [Button.url('🌟 Beni Bir Gruba Ekle', 'https://t.me/UtagOnline_bot?startgroup=a'),
-                       Button.url('📣 kanal', 'https://t.me/UtagOnline'),
-                      Button.url('👮‍♂️ Sahibim', 'https://t.me/baykaoss')]
+                      [Button.url('➕Beni Bir Gruba Ekle➕', 'https://t.me/UserrTaggerBot?startgroup=a'),
+                       Button.url('🎛️komutlar', 'https://t.me/UserrTagger/32'),
+                      Button.url('📣resmi kanal', 'https://t.me/UserrTagger')]
                     ),
                     link_preview=False
                    )
@@ -173,5 +179,5 @@ async def mentionalladmin(event):
     return await event.respond("__Bu komut gruplarda ve kanallarda kullanılabilir.!__")
   
 
-print(">> Bot çalıyor merak etme 👮‍♂️ @UtagOnline bilgi alabilirsin <<")
+print(">> Bot çalışıyor merak etme 👮‍♂️ @UserrTagger bilgi alabilirsin <<")
 client.run_until_disconnected()
