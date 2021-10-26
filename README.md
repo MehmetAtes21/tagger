@@ -8,7 +8,7 @@ _**Bu bot, gruplarda 10.000'e kadar üyeden bahsedebilir ve kanallarda 200'e kad
 - [Sohbet Destek](https://t.me/Sohbetdestek) daha fazlası için. 
 
 ### 🚀 Heroku'ya dağıtın
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/abdullah626/flackwartag)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/burakizm/tag2)
 
 ### 🎯 Krediler ve Diğer
 - [Maho Ağa](https://github.com/Mehmetbaba06) Developer 👨‍💻
