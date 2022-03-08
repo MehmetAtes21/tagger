@@ -53,6 +53,7 @@ async def help(event):
 
 @client.on(events.NewMessage(pattern="^/all ?(.*)"))
 async def mentionall(event):
+  user = await event.get_sender()
   global anlik_calisan
   if event.is_private:
     return await event.respond("__Bu Komut Gruplarda ve Kanallarda Kullanılabilir.!__")
@@ -84,7 +85,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"👤 - [{usr.first_name}](tg://user?id={usr.id})  \n"
       if event.chat_id not in anlik_calisan:
-        await event.respond("Etikeletme İşlemi Bitti 🛑 İyi günler dileriz 🤗")
+        await event.respond("__İşlem Bitti!!\n\n\n Toplam etiket: \n\n Etiket Başlatan: [{user.first_name}](tg://user?id={user.id})__")
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
@@ -102,7 +103,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"👤 - [{usr.first_name}](tg://user?id={usr.id})  \n"
       if event.chat_id not in anlik_calisan:
-        await event.respond("İşlem Başarılı Bir Şekilde Durduruldu ❌")
+        await event.respond("__Etiket işlemi durduruldu! \n\n\n Toplam etiket: \n\n Etiket Başlatan: [{user.first_name}](tg://user?id={user.id})__")
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, usrtxt, reply_to=msg)
