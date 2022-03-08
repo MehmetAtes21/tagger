@@ -17,7 +17,7 @@ client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 
 anlik_calisan = []
 
-@client.on(events.NewMessage(pattern='^(?i)/cancel@UserrTaggerBot'))
+@client.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event):
   global anlik_calisan
   anlik_calisan.remove(event.chat_id)
@@ -35,11 +35,11 @@ async def start(event):
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = """Nasıl Çalışırım:
+  helptext = """Komutlarım:
 
 /utag <Mesajınız> - kullanıcıları etiketlerim.
 /atag <Mesajınız> - Sadece yöneticileri etiketlerim.
-/cancel@UserrTaggerBot - Etiket işlemini iptal ederim.
+/cancel - Etiket işlemini iptal ederim.
 ❕ Yalnızca yöneticileri bu komutları kullanabilir."""
   await event.reply(helptext,
                     buttons=(
