@@ -43,19 +43,19 @@ async def help(event):
 ❕ Yalnızca yöneticileri bu komutları kullanabilir."""
   await event.reply(helptext,
                     buttons=(
-                      [Button.url('➕Beni Bir Gruba Ekle➕', 'https://t.me/UserrTaggerBot?startgroup=a'),
-                       Button.url('🎛️komutlar', 'https://t.me/UserrTagger/32'),
-                      Button.url('📣resmi kanal', 'https://t.me/UserrTagger')]
+                      [Button.url('➕ Beni Bir Gruba Ekle ➕', 'https://t.me/TagAllDeBot?startgroup=a'),
+                       Button.url('🛠️ Sahib 🛠️', 'https://t.me/DexRoFF'),
+                      Button.url('📣 Resmi Kanal', 'https://t.me/TagAllDeBotKanal')]
                     ),
                     link_preview=False
                    )
 
 
-@client.on(events.NewMessage(pattern="^/utag ?(.*)"))
+@client.on(events.NewMessage(pattern="^/all ?(.*)"))
 async def mentionall(event):
   global anlik_calisan
   if event.is_private:
-    return await event.respond("__Bu komut gruplarda ve kanallarda kullanılabilir.!__")
+    return await event.respond("__Bu Komut Gruplarda ve Kanallarda Kullanılabilir.!__")
   
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
@@ -82,7 +82,7 @@ async def mentionall(event):
     usrtxt = ""
     async for usr in client.iter_participants(event.chat_id):
       usrnum += 1
-      usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
+      usrtxt += f"👤 - [{usr.first_name}](tg://user?id={usr.id})  \n"
       if event.chat_id not in anlik_calisan:
         await event.respond("Etikeletme İşlemi Bitti 🛑 İyi günler dileriz 🤗")
         return
@@ -100,7 +100,7 @@ async def mentionall(event):
     usrtxt = ""
     async for usr in client.iter_participants(event.chat_id):
       usrnum += 1
-      usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
+      usrtxt += f"👤 - [{usr.first_name}](tg://user?id={usr.id})  \n"
       if event.chat_id not in anlik_calisan:
         await event.respond("İşlem Başarılı Bir Şekilde Durduruldu ❌")
         return
@@ -177,5 +177,5 @@ async def mentionalladmin(event):
     return await event.respond("__Bu komut gruplarda ve kanallarda kullanılabilir.!__")
   
 
-print(">> Bot çalışıyor merak etme 👮‍♂️ @UserrTagger bilgi alabilirsin <<")
+print(">> Bot çalışıyor merak etme 👮‍♂️ @DexRoFF bilgi alabilirsin <<")
 client.run_until_disconnected()
