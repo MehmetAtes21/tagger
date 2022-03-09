@@ -35,12 +35,12 @@ async def start(event):
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = """Komutlarım:
+  helptext = """**Komutlarım:
 
-/utag <Mesajınız> - kullanıcıları etiketlerim.
-/atag <Mesajınız> - Sadece yöneticileri etiketlerim.
-/cancel - Etiket işlemini iptal ederim.
-❕ Yalnızca yöneticileri bu komutları kullanabilir."""
+/all <Mesajınız> 5-li Tag
+/atag <Mesajınız> - Yönetici Etiketleme
+/cancel - Durdur
+❕ Bu Komutları Sadace Yöneticiler Kullana bilir 😉.**"""
   await event.reply(helptext,
                     buttons=(
                       [Button.url('➕ Beni Bir Gruba Ekle ➕', 'https://t.me/TagAllDeBot?startgroup=a'),
