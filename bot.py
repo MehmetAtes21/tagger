@@ -27,9 +27,13 @@ async def cancel(event):
 async def start(event):
   await event.reply("**Merhaba Ben @CosmicTaggerBot\n Grubunuzda Üyeleri Etiketleye bilirim \n\n Nasıl Çalıştığıma Bakmak için /help yaza bilirsin**",
                     buttons=(
-                      [Button.url('➕Beni Gruba Ekle➕', 'https://t.me/CosmicTaggerBot?startgroup=a'),
-                       Button.url('🛠️ Creator 🛠️', 'https://t.me/DexRoFF'),
-                      Button.url('📣 Resmi Kanal 📣', 'https://t.me/Cosmic_MMC')]
+                      [
+                      Button.url('➕Beni Gruba Ekle➕', 'https://t.me/CosmicTaggerBot?startgroup=a'),
+                      Button.url('🛠️ Creator 🛠️', 'https://t.me/DexRoFF')
+                      ],
+                      [
+                      Button.url('📣 Resmi Kanal 📣', 'https://t.me/Cosmic_MMC')
+                      ]
                     ),
                     link_preview=False
                    )
