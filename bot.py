@@ -47,9 +47,13 @@ async def help(event):
 ❕ Yalnızca yöneticileri bu komutları kullanabilir.**"""
   await event.reply(helptext,
                     buttons=(
-                      [Button.url('➕ Beni Gruba Ekle ➕', 'https://t.me/CosmicTaggerBot?startgroup=a'),
-                       Button.url('🛠️ Creator 🛠️', 'https://t.me/DexRoFF'),
-                      Button.url('📣Resmi Kanal 📣', 'https://t.me/Cosmic_MMC')]
+                      [
+                      Button.url('➕Beni Gruba Ekle➕', 'https://t.me/CosmicTaggerBot?startgroup=a'),
+                      Button.url('🛠️ Creator 🛠️', 'https://t.me/DexRoFF')
+                      ],
+                      [
+                      Button.url('📣 Resmi Kanal 📣', 'https://t.me/Cosmic_MMC')
+                      ]
                     ),
                     link_preview=False
                    )
