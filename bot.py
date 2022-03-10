@@ -83,7 +83,7 @@ async def mentionall(event):
     usrtxt = ""
     async for usr in client.iter_participants(event.chat_id):
       usrnum += 1
-      usrtxt += f"👤 - [{usr.first_name}](tg://user?id={usr.id})  \n"
+      usrtxt += f"➤ [{usr.first_name}](tg://user?id={usr.id})  \n"
       if event.chat_id not in anlik_calisan:
         await event.respond(f"**Etiket İşlemi Bitti!! \n\n\n Toplam etiket: \n\n Etiket Başlatan: [{user.first_name}](tg://user?id={user.id})**")
         return
@@ -101,7 +101,7 @@ async def mentionall(event):
     usrtxt = ""
     async for usr in client.iter_participants(event.chat_id):
       usrnum += 1
-      usrtxt += f"👤 - [{usr.first_name}](tg://user?id={usr.id})  \n"
+      usrtxt += f"➤ [{usr.first_name}](tg://user?id={usr.id})  \n"
       if event.chat_id not in anlik_calisan:
         await event.respond(f"** Etiket işlemi durduruldu! \n\n\n Toplam etiket: \n\n Etiket Başlatan: [{user.first_name}](tg://user?id={user.id})**")
         return
@@ -142,7 +142,7 @@ async def mentionalladmin(event):
     usrtxt = ""
     async for usr in client.iter_participants(event.chat_id,filter=ChannelParticipantsAdmins):
       usrnum += 1
-      usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
+      usrtxt += f"➤ [{usr.first_name}](tg://user?id={usr.id}) "
       if event.chat_id not in anlik_calisan:
         await event.respond("Etikeletme İşlemi Bitti 👥 İyi günler dileriz 🤗")
         return
@@ -160,7 +160,7 @@ async def mentionalladmin(event):
     usrtxt = ""
     async for usr in client.iter_participants(event.chat_id,filter=ChannelParticipantsAdmins):
       usrnum += 1
-      usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
+      usrtxt += f"➤ [{usr.first_name}](tg://user?id={usr.id}) "
       if event.chat_id not in anlik_calisan:
         await event.respond("İşlem Başarılı Bir Şekilde Durduruldu ❌")
         return
