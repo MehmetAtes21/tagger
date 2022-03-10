@@ -170,11 +170,11 @@ async def mentionalladmin(event):
         usrtxt = ""
     anlik_calisan.remove(event.chat_id)
     
- @client.on(events.NewMessage())
- async def mentionalladmin(event):
-  global anlik_calisan
-  if event.is_private:
-    return await event.respond("__Bu komut gruplarda ve kanallarda kullanılabilir.!__")
+# @client.on(events.NewMessage())
+# async def mentionalladmin(event):
+#  global anlik_calisan
+#  if event.is_private:
+#    return await event.respond("__Bu komut gruplarda ve kanallarda kullanılabilir.!__")
   
 
 print(">> Bot çalışıyor merak etme 👮‍♂️ @DexRoFF bilgi alabilirsin <<")
