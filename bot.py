@@ -25,31 +25,29 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("** Merhaba! Ben @TagAllDeBot Grubunuzdaki Kullanıcıları Etiketlemek İçin Yaratıldım. Beni Grubunuza Ekleyin ve Gerisini Bana Bırakın. \n \n\n Komutlar için : /help **",
+  await event.reply("**Merhaba Ben @CosmicTaggerBot \n Grubunuzda Üyeleri Etiketleye bilirim \n\n Nasıl Çalıştığıma Bakmak için /help yaza bilirsin**",
                     buttons=(
-                      [Button.url('➕ Beni Bir Gruba Ekle ➕', 'https://t.me/TagAllDeBot?startgroup=a'),
-                       Button.url('🛠️ Sahib 🛠️', 'https://t.me/DexRoFF'),
-                      Button.url('📣 Resmi Kanal', 'https://t.me/TagAllDeBotKanal')]
+                      [Button.url('➕Beni Gruba Ekle➕', 'https://t.me/CosmicTaggerBot?startgroup=a'),
+                       Button.url('🛠️ Creator 🛠️', 'https://t.me/DexRoFF'),
+                      Button.url('📣 Resmi Kanal 📣', 'https://t.me/Cosmic_MMC')]
                     ),
                     link_preview=False
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = """**Komutlarım:
-
-/all <Mesajınız> 5-li Tag
-/atag <Mesajınız> - Yönetici Etiketleme
-/cancel - Durdur
-❕ Bu Komutları Sadace Yöneticiler Kullana bilir 😉.**"""
+  helptext = """**Nasıl Çalışırım:
+/utag <Mesajınız> - Kullanıcıları Etiketlerim
+/atag <Mesajınız> - Sadece Yöneticileri Etiketlerim.
+/cancel@CosmicTaggerBot - Etiket işlemini iptal ederim.
+❕ Yalnızca yöneticileri bu komutları kullanabilir.**"""
   await event.reply(helptext,
                     buttons=(
-                      [Button.url('➕ Beni Bir Gruba Ekle ➕', 'https://t.me/TagAllDeBot?startgroup=a'),
-                       Button.url('🛠️ Sahib 🛠️', 'https://t.me/DexRoFF'),
-                      Button.url('📣 Resmi Kanal', 'https://t.me/TagAllDeBotKanal')]
+                      [Button.url('➕ Beni Gruba Ekle ➕', 'https://t.me/CosmicTaggerBot?startgroup=a'),
+                       Button.url('🛠️ Creator 🛠️', 'https://t.me/DexRoFF'),
+                      Button.url('📣Resmi Kanal 📣', 'https://t.me/Cosmic_MMC')]
                     ),
                     link_preview=False
                    )
-
 
 @client.on(events.NewMessage(pattern="^/all ?(.*)"))
 async def mentionall(event):
