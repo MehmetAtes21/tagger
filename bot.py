@@ -170,5 +170,6 @@ async def mentionalladmin(event):
         usrtxt = ""
     anlik_calisan.remove(event.chat_id)
     
+
 print(">> Bot çalışıyor merak etme 👮‍♂️ @DexRoFF bilgi alabilirsin <<")
 client.run_until_disconnected()
