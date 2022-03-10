@@ -178,6 +178,60 @@ async def mentionalladmin(event):
         usrtxt = ""
     anlik_calisan.remove(event.chat_id)
     
+@client.on(events.NewMessage(pattern="^/tag ?(.*)"))
+async def tektag(event):
+  global anlik_calisan
+  if event.is_private:
+    return await event.respond(f"{noqrup}")
+  
+  admins = []
+  async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
+    admins.append(admin.id)
+  if not event.sender_id in admins:
+    return await event.respond(f"{noadmin}")
+  
+  if event.pattern_match.group(1):
+    mode = "text_on_cmd"
+    msg = event.pattern_match.group(1)
+  elif event.reply_to_msg_id:
+    mode = "text_on_reply"
+    msg = event.reply_to_msg_id
+    if msg == None:
+        return await event.respond("__Eski mesajları göremiyorum! (bu mesaj beni gruba eklemeden önce yazılmış)__")
+  elif event.pattern_match.group(1) and event.reply_to_msg_id:
+    return await event.respond("__Etiketleme mesajı yazmadın!__")
+  else:
+    return await event.respond("__Etiketleme için bir mesajı yanıtlayın veya bir mesaj yazın!__")
+    
+  if mode == "text_on_cmd":
+    await client.send_message(event.chat_id, "🛸 Tek Tek etiketleme başladı",
+                    buttons=(
+                      [
+                      Button.inline(f"{durdur}", data="bitir")
+                      ]
+                    )
+                  ) 
+    aykhan_tag.append(event.chat_id)
+    usrnum = 0
+    usrtxt = ""
+    async for usr in client.iter_participants(event.chat_id):
+      usrnum += 1
+      usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
+      if event.chat_id not in aykhan_tag:
+        await event.respond("⛔ Teker teker etiketleme işlemi durduruldu",
+                    buttons=(
+                      [
+                      Button.inline(f"{yeniden}", data="tektag")
+                      ]
+                    )
+                  )
+        return
+      if usrnum == 1:
+        await client.send_message(event.chat_id, f"{usrtxt} {msg}")
+        await asyncio.sleep(2)
+        usrnum = 0
+        usrtxt = ""
+
 
 print(">> Bot çalışıyor merak etme 👮‍♂️ @DexRoFF bilgi alabilirsin <<")
 client.run_until_disconnected()
