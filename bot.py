@@ -207,7 +207,7 @@ async def tektag(event):
     await client.send_message(event.chat_id, "🛸 Tek Tek etiketleme başladı",
                     buttons=(
                       [
-                      Button.inline(f"{durdur}", data="bitir")
+                      Button.inline(f"{dayandir}", data="bitir")
                       ]
                     )
                   ) 
