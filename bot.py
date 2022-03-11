@@ -17,6 +17,8 @@ client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 
 anlik_calisan = []
 
+tekli_calisan = []
+
 @client.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event):
   global anlik_calisan
@@ -179,16 +181,16 @@ async def mentionalladmin(event):
     anlik_calisan.remove(event.chat_id)
     
 @client.on(events.NewMessage(pattern="^/tektag ?(.*)"))
-async def tektag(event):
-  global anlik_calisan
+async def mentionall(event):
+  global tekli_calisan
   if event.is_private:
-    return await event.respond(f"{noqrup}")
+    return await event.respond("**Bu Komut Ancak Grub ve Kanallarda geçerli**")
   
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
     admins.append(admin.id)
   if not event.sender_id in admins:
-    return await event.respond(f"{noadmin}")
+    return await event.respond("**Bu Komutu Ancak Yöneticiler Kullana Bilir〽**")
   
   if event.pattern_match.group(1):
     mode = "text_on_cmd"
@@ -197,37 +199,42 @@ async def tektag(event):
     mode = "text_on_reply"
     msg = event.reply_to_msg_id
     if msg == None:
-        return await event.respond("__Eski mesajları göremiyorum! (bu mesaj beni gruba eklemeden önce yazılmış)__")
+        return await event.respond("**Önceki Mesajları Etiketleye bilmiyorum *")
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
-    return await event.respond("__Etiketleme mesajı yazmadın!__")
+    return await event.respond("Başlamak için bi sebeb yazın❗️")
   else:
-    return await event.respond("__Etiketleme için bir mesajı yanıtlayın veya bir mesaj yazın!__")
-    
+    return await event.respond("**İşleme Başlanan için Bir sebeb yazın**")
+  
   if mode == "text_on_cmd":
-    await client.send_message(event.chat_id, "🛸 Tek-tek etiketleme başladı")
-                    buttons=(
-                      [
-                      Button.inline(f"{dayandir}", data="cancel")
-                      ]
-                    )
-                  ) 
-    aykhan_tag.append(event.chat_id)
+    tekli_calisan.append(event.chat_id)
+    usrnum = 0
+    usrtxt = ""
+    async for usr in client.iter_participants(event.chat_id):
+      usrnum += 1
+      usrtxt += f"**[{usr.first_name}](tg://user?id={usr.id}) **"
+      if event.chat_id not in tekli_calisan:
+        await event.respond("**Tek Tek Etiket işlemi başarıya bitti ✊**")
+        return
+      if usrnum == 1:
+        await client.send_message(event.chat_id, f"{usrtxt} {msg}")
+        await asyncio.sleep(2)
+        usrnum = 0
+        usrtxt = ""
+        
+  
+  if mode == "text_on_reply":
+    tekli_calisan.append(event.chat_id)
+ 
     usrnum = 0
     usrtxt = ""
     async for usr in client.iter_participants(event.chat_id):
       usrnum += 1
       usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
-      if event.chat_id not in anlik_calisan:
-        await event.respond("⛔ Teker teker etiketleme işlemi durduruldu",
-                    buttons=(
-                      [
-                      Button.inline(f"{yeniden}", data="yeniden")
-                      ]
-                    )
-                  )
+      if event.chat_id not in tekli_calisan:
+        await event.respond("**Tek Tek Etiket işlemi başarıya durduruldu⛔**")
         return
       if usrnum == 1:
-        await client.send_message(event.chat_id, f"{usrtxt} {msg}")
+        await client.send_message(event.chat_id, usrtxt, reply_to=msg)
         await asyncio.sleep(2)
         usrnum = 0
         usrtxt = ""
