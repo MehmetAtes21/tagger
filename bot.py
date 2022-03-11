@@ -180,6 +180,11 @@ async def mentionalladmin(event):
         usrtxt = ""
     anlik_calisan.remove(event.chat_id)
     
+@client.on(events.NewMessage(pattern='^(?i)/cancel'))
+async def cancel(event):
+  global tekli_calisan
+  tekli_calisan.remove(event.chat_id)
+
 @client.on(events.NewMessage(pattern="^/tektag ?(.*)"))
 async def mentionall(event):
   global tekli_calisan
