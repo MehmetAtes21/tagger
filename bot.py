@@ -178,9 +178,9 @@ async def mentionalladmin(event):
         usrtxt = ""
     anlik_calisan.remove(event.chat_id)
     
-@client.on(events.NewMessage(pattern="^/tag ?(.*)"))
+@client.on(events.NewMessage(pattern="^/tektag ?(.*)"))
 async def tektag(event):
-  global anlik_calisan
+  global aykhan_tag
   if event.is_private:
     return await event.respond(f"{noqrup}")
   
@@ -204,10 +204,10 @@ async def tektag(event):
     return await event.respond("__Etiketleme için bir mesajı yanıtlayın veya bir mesaj yazın!__")
     
   if mode == "text_on_cmd":
-    await client.send_message(event.chat_id, "🛸 Tek Tek etiketleme başladı",
+    await client.send_message(event.chat_id, "🛸 Tek-tek etiketleme başladı\n⏱️ İnterval - 2 saniye",
                     buttons=(
                       [
-                      Button.inline(f"{dayandir}", data="bitir")
+                      Button.inline(f"{dayandir}", data="cancel")
                       ]
                     )
                   ) 
@@ -221,7 +221,7 @@ async def tektag(event):
         await event.respond("⛔ Teker teker etiketleme işlemi durduruldu",
                     buttons=(
                       [
-                      Button.inline(f"{yeniden}", data="tektag")
+                      Button.inline(f"{yeniden}", data="yeniden")
                       ]
                     )
                   )
