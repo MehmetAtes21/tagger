@@ -59,7 +59,7 @@ async def start(event):
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**Nasıl Çalışırım:\n\n/all <Mesajınız> - Kullanıcıları Etiketlerim.\n/atag <Mesajınız> - Sadace Yöneticileri Etiketlerim.\n/cancel@BlackTaggerBot - Etiket İşlemini İptal Ederim .\n❕ Yalnızca Yöneticiler Bu Komutları Kullana Bilir"
+  helptext = "**Nasıl Çalışırım:\n\n/all <Mesajınız> - Kullanıcıları Etiketlerim.\n/atag <Mesajınız> - Sadace Yöneticileri Etiketlerim.\n/cancel@BlackTaggerBot - Etiket İşlemini İptal Ederim .\n❕ Yalnızca Yöneticiler Bu Komutları Kullana Bilir**"
   await event.reply(helptext)
 
 @client.on(events.NewMessage())
@@ -101,7 +101,7 @@ async def mentionall(event):
     anlik_calisan.append(event.chat_id)
     usrnum = 0
     usrtxt = ""
-    await event.respond("**Etiket işlemi Başarıyla Başladı \n\n Etiket İşlemini Durdurmaq için /cancel@BlackTaggerBot")
+    await event.respond("**Etiket işlemi Başarıyla Başladı \n\n Etiket İşlemini Durdurmaq için\n\n /cancel@BlackTaggerBot Komutun Kullanım*")
         
     async for usr in client.iter_participants(event.chat_id, aggressive=True):
       rxyzdev_tagTot[event.chat_id] += 1
@@ -117,7 +117,7 @@ async def mentionall(event):
         
     sender = await event.get_sender()
     rxyzdev_initT = f"[{sender.first_name}](tg://user?id={sender.id})"
-    if event.chat_id in rxyzdev_tagTot:await event.respond(f"✅ Eᴛiᴋᴇᴛʟᴇᴍᴇ İşʟᴇᴍi Tᴀᴍᴀᴍʟᴀɴᴅı !.\n\n👥 Eᴛiᴋᴇᴛʟᴇɴᴇɴ Kᴜʟʟᴀɴıᴄı Sᴀʏıꜱı: {rxyzdev_tagTot[event.chat_id]}\n🗣 Eᴛiᴋᴇᴛ İşʟᴇᴍiɴi Bᴀşʟᴀᴛᴀɴ: {rxyzdev_initT}")
+    if event.chat_id in rxyzdev_tagTot:await event.respond(f"✅ Etiket İşlemi Başarıyla Tamamlandı !.\n\n👥 Etiketlerin Sayları: {rxyzdev_tagTot[event.chat_id]}\n🗣 Etiket İşlemini Başlatan: {rxyzdev_initT}")
   
   if mode == "text_on_reply":
     anlik_calisan.append(event.chat_id)
@@ -138,7 +138,7 @@ async def mentionall(event):
      
     sender = await event.get_sender()
     rxyzdev_initT = f"[{sender.first_name}](tg://user?id={sender.id})"      
-    if event.chat_id in rxyzdev_tagTot:await event.respond(f"✅ Eᴛiᴋᴇᴛʟᴇᴍᴇ İşʟᴇᴍi Tᴀᴍᴀᴍʟᴀɴᴅı !.\n\n👥 Eᴛiᴋᴇᴛʟᴇɴᴇɴ Kᴜʟʟᴀɴıᴄı Sᴀʏıꜱı: {rxyzdev_tagTot[event.chat_id]}\n🗣 Eᴛiᴋᴇᴛ İşʟᴇᴍiɴi Bᴀşʟᴀᴛᴀɴ: {rxyzdev_initT}")
+    if event.chat_id in rxyzdev_tagTot:await event.respond(f"✅ Etiket İşlemi Başarıyla Tamamlandı !.\n\n👥 Etiketlerin Sayları: {rxyzdev_tagTot[event.chat_id]}\n🗣 Etiket İşlemini Başlatan: {rxyzdev_initT}")
 
 @client.on(events.NewMessage(pattern="^/atag ?(.*)"))
 async def mentionalladmin(event):
