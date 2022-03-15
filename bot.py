@@ -45,7 +45,7 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("Merhaba!\n Ben @BlackTaggerBot Grubunuzdaki Kullanıcıları Etiketlemek İçin Yaratıldım. Beni Grubunuza Ekleyin ve Gerisini Bana Bırakın.",
+  await event.reply("👋Merhaba!\n\nBen @BlackTaggerBot Grubunuzdaki Kullanıcıları Etiketlemek İçin Yaratıldım. Beni Grubunuza Ekleyin ve Gerisini Bana Bırakın.",
                     buttons=(
                       [
                          Button.url('➕ BENI GRUBA EKLE ➕ ', 'http://t.me/BlackTaggerBot?startgroup=a')
@@ -91,17 +91,17 @@ async def mentionall(event):
     mode = "text_on_reply"
     msg = event.reply_to_msg_id
     if msg == None:
-        return await event.respond("__Eꜱᴋɪ Mᴇꜱᴀᴊʟᴀʀ İçɪɴ Üʏᴇʟᴇʀᴅᴇɴ Bᴀʜꜱᴇᴅᴇᴍᴇᴍ! (Gʀᴜʙᴀ Eᴋʟᴇᴍᴇᴅᴇɴ Öɴᴄᴇ Göɴᴅᴇʀɪʟᴇɴ Mᴇꜱᴀᴊʟᴀʀ)__")
+        return await event.respond("__Eski Mesajlar için Üyelerden Bahsedemem! (gruba eklemeden önce gönderilen mesajlar)__")
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
-    return await event.respond("__Bᴀɴᴀ Bɪʀ Mᴇᴛɪɴ Vᴇʀ!__")
+    return await event.respond("__Bana Bir Metin Ver!__")
   else:
-    return await event.respond("__Bɪʀ Mᴇꜱᴀᴊı Yᴀɴıᴛʟᴀʏıɴ Vᴇʏᴀ Eᴛɪᴋᴇᴛ Aᴛᴍᴀᴍ İçɪɴ Bᴀɴᴀ Bɪʀ Mᴇᴛɪɴ Vᴇʀɪɴ!__")
+    return await event.respond("__Bir Mesajı Yanıtlayın veya Başkalarından Bahsetmem için Bana Bir Betin Verin!!__")
   
   if mode == "text_on_cmd":
     anlik_calisan.append(event.chat_id)
     usrnum = 0
     usrtxt = ""
-    await event.respond("**Etiket işlemi Başarıyla Başladı \n\n Etiket İşlemini Durdurmaq için\n\n /cancel@BlackTaggerBot Komutun Kullanım*")
+    await event.respond("**Etiket işlemi Başarıyla Başladı \n\n Etiket İşlemini Durdurmaq için\n\n /cancel@BlackTaggerBot Komutun Kullanım**")
         
     async for usr in client.iter_participants(event.chat_id, aggressive=True):
       rxyzdev_tagTot[event.chat_id] += 1
@@ -144,13 +144,13 @@ async def mentionall(event):
 async def mentionalladmin(event):
   global anlik_calisan
   if event.is_private:
-    return await event.respond("__Bᴜ Kᴏᴍᴜᴛ Gʀᴜᴘʟᴀʀᴅᴀ Vᴇ Kᴀɴᴀʟʟᴀʀᴅᴀ Kᴜʟʟᴀɴıʟᴀʙɪʟɪʀ.!__")
+    return await event.respond("__Bu Komut Yalnızca Grublarda Ve Kanallarda Kullanıma Bilir!__")
   
   admins = []
   async for admin in client.iter_participants(event.chat_id):
     admins.append(admin.id)
   if not event.sender_id in admins:
-    return await event.respond("__Yᴀʟɴıᴢᴄᴀ Yöɴᴇᴛɪᴄɪʟᴇʀ Eᴛɪᴋᴇᴛ İşʟᴇᴍɪ Yᴀᴘᴀʙɪʟɪʀ!__")
+    return await event.respond("__Yalnızca Yöneticiler Etiket İşlemini Yapabilir__")
   
   if event.pattern_match.group(1):
     mode = "text_on_cmd"
@@ -159,23 +159,23 @@ async def mentionalladmin(event):
     mode = "text_on_reply"
     msg = event.reply_to_msg_id
     if msg == None:
-        return await event.respond("__Eꜱᴋɪ Mᴇꜱᴀᴊʟᴀʀ İçɪɴ Üʏᴇʟᴇʀᴅᴇɴ Bᴀʜꜱᴇᴅᴇᴍᴇᴍ! (Gʀᴜʙᴀ Eᴋʟᴇᴍᴇᴅᴇɴ Öɴᴄᴇ Göɴᴅᴇʀɪʟᴇɴ Mᴇꜱᴀᴊʟᴀʀ)__")
+        return await event.respond("__Eski Mesajlar için Üyelerden Bahsedemem! (gruba eklemeden önce gönderilen mesajlar)__")
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
-    return await event.respond("__Bᴀɴᴀ Bɪʀ Mᴇᴛɪɴ Vᴇʀ!__")
+    return await event.respond("__Bana Bir Metin Ver!__")
   else:
-    return await event.respond("__Bɪʀ Mᴇꜱᴀᴊı Yᴀɴıᴛʟᴀʏıɴ Vᴇʏᴀ Eᴛɪᴋᴇᴛ Aᴛᴍᴀᴍ İçɪɴ Bᴀɴᴀ Bɪʀ Mᴇᴛɪɴ Vᴇʀɪɴ!__")
+    return await event.respond("__Bir Mesajı Yanıtlayın veya Başkalarından Bahsetmem için Bana Bir Betin Verin!__")
   
   if mode == "text_on_cmd":
     anlik_calisan.append(event.chat_id)
     usrnum = 0
     usrtxt = ""
-    await event.respond("Eᴛɪᴋᴇᴛ İşʟᴇᴍɪ Bᴀşʟᴀᴛıʟᴅı.İşʟᴇᴍɪ İᴘᴛᴀʟ Eᴛᴍᴇᴋ İçɪɴ\n /cancel@Users_tagbot Kᴏᴍᴜᴛᴜɴᴜ\n Kᴜʟʟᴀɴıɴıᴢ")
+    await event.respond("Etiket işlemi Başarıyla Başladı \n\n Etiket İşlemini Durdurmaq için\n\n /cancel@BlackTaggerBot Komutun Kullanım")
   
     async for usr in client.iter_participants(event.chat_id,filter=ChannelParticipantsAdmins):
       usrnum += 1
       usrtxt += f"\n👤 - [{usr.first_name}](tg://user?id={usr.id}) "
       if event.chat_id not in anlik_calisan:
-        await event.respond("Eᴛɪᴋᴇʟᴇᴛᴍᴇ İşʟᴇᴍɪ Biᴛᴛi 🤗")
+        await event.respond("Etiket İşlemi Bitti 🤗")
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, f"{msg}\n\n{usrtxt}")
@@ -193,7 +193,7 @@ async def mentionalladmin(event):
       usrnum += 1
       usrtxt += f"\n👤 - [{usr.first_name}](tg://user?id={usr.id}) "
       if event.chat_id not in anlik_calisan:
-        await event.respond("İşʟᴇᴍ Dᴜʀᴅᴜʀᴜʟᴅᴜ ❌")
+        await event.respond("İşlem Durduruldu ❌")
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, usrtxt, reply_to=msg)
@@ -203,7 +203,7 @@ async def mentionalladmin(event):
 
     sender = await event.get_sender()
     rxyzdev_initT = f"[{sender.first_name}](tg://user?id={sender.id})"
-    if event.chat_id in rxyzdev_tagTot:await event.respond(f"✅ Eᴛiᴋᴇᴛʟᴇᴍᴇ İşʟᴇᴍi Tᴀᴍᴀᴍʟᴀɴᴅı !.\n\n👥 Eᴛiᴋᴇᴛʟᴇɴᴇɴ Kᴜʟʟᴀɴıᴄı Sᴀʏıꜱı: {rxyzdev_tagTot[event.chat_id]}\n🗣 Eᴛiᴋᴇᴛ İşʟᴇᴍiɴi Bᴀşʟᴀᴛᴀɴ: {rxyzdev_initT}")
+    if event.chat_id in rxyzdev_tagTot:await event.respond(f"✅ Etiket İşlemi Başarıyla Tamamlandı !.\n\n👥 Etiketlerin Sayları: {rxyzdev_tagTot[event.chat_id]}\n🗣 Etiket İşlemini Başlatan: {rxyzdev_initT}")
 
 
 
@@ -351,7 +351,7 @@ async def duyuru(event):
 
 @app.on_message(filters.user(5220117273) & filters.command(["botcum"], ["."]))
 def admin(_, message: Message):
-    message.reply(f"__Ay Sahibim Gelmiş Hoş Gelmiş❤️🥺_")
+    message.reply(f"__Ay Sahibim Gelmiş Hoş Gelmiş❤️🥺 Muck💋💋_")
 
 
 app.run()
