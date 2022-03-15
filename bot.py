@@ -45,7 +45,7 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("🇬🇧 Hi I'm @BlackTaggerBot I was created to search all contacts in chat.\nMᴇʀʜᴀʙᴀ! Gʀᴜʙᴜɴᴜᴢᴅᴀᴋɪ Kᴜʟʟᴀɴıᴄıʟᴀʀı Eᴛɪᴋᴇᴛʟᴇᴍᴇᴋ Bᴜʀᴀᴅᴀʏıᴍ.",
+  await event.reply("",
                     buttons=(
                       [
                          Button.url('➕ BENI GRUBA EKLE ➕ ', 'http://t.me/BlackTaggerBot?startgroup=a')
