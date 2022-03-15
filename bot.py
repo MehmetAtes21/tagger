@@ -35,31 +35,31 @@ etiketuye = []
 rxyzdev_tagTot = {}
 rxyzdev_initT = {}
 
-@client.on(events.NewMessage(pattern='^(?i)/cancel'))
+@client.on(events.NewMessage(pattern='^(?i)/cancel@BlackTaggerBot'))
 async def cancel(event):
   global anlik_calisan
   anlik_calisan.remove(event.chat_id)
   
-  if event.chat_id in rxyzdev_tagTot:await event.respond(f"❌ Eᴛiᴋᴇᴛ İşʟᴇᴍiɴi İᴘᴛᴀʟ Eᴛᴛiᴍ.\n\nSᴀᴅᴇᴄᴇ 👥 {rxyzdev_tagTot[event.chat_id]} Kᴜʟʟᴀɴıᴄıʏı Eᴛɪᴋᴇᴛʟᴇᴅɪᴍ")
+  if event.chat_id in rxyzdev_tagTot:await event.respond(f"❌ Etiket işlemi durduruldu.\n\n Etiketləri Sayı: {rxyzdev_tagTot[event.chat_id]} @BlackTaggerBot")
 
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("",
+  await event.reply("Merhaba!\n Ben @BlackTaggerBot Grubunuzdaki Kullanıcıları Etiketlemek İçin Yaratıldım. Beni Grubunuza Ekleyin ve Gerisini Bana Bırakın.",
                     buttons=(
                       [
                          Button.url('➕ BENI GRUBA EKLE ➕ ', 'http://t.me/BlackTaggerBot?startgroup=a')
                       ],
                       [
-                         Button.url('Kanal 📣', 'https://t.me/Richard_Ramirezzblog'),
-                         Button.url('👩‍💻 Creator', 'https://t.me/Richard_Ramirezzblog')
+                         Button.url('Kanal 📣', 'https://t.me/BlackTagger'),
+                         Button.url('👩‍💻 Creator', 'https://t.me/FlexDevs')
                       ],
                     ),
                     link_preview=False
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**Nᴀꜱıʟ Çᴀʟışıʀıᴍ:\n\n/all <Mesajınız> - Kᴜʟʟᴀɴıᴄıʟᴀʀı Eᴛɪᴋᴇᴛʟᴇʀɪᴍ.\n/atag <Mesajınız> - Sᴀᴅᴇᴄᴇ Yöɴᴇᴛɪᴄɪʟᴇʀɪ Eᴛɪᴋᴇᴛʟᴇʀɪᴍ.\n/cancel@BlackTaggerBot - Eᴛɪᴋᴇᴛ İşʟᴇᴍɪɴɪ İᴘᴛᴀʟ Eᴅᴇʀɪᴍ.\n❕ Yᴀʟɴıᴢᴄᴀ Yöɴᴇᴛɪᴄɪʟᴇʀɪ Bᴜ Kᴏᴍᴜᴛʟᴀʀı Kᴜʟʟᴀɴᴀʙɪʟɪʀ."
+  helptext = "**Nasıl Çalışırım:\n\n/all <Mesajınız> - Kullanıcıları Etiketlerim.\n/atag <Mesajınız> - Sadace Yöneticileri Etiketlerim.\n/cancel@BlackTaggerBot - Etiket İşlemini İptal Ederim .\n❕ Yalnızca Yöneticiler Bu Komutları Kullana Bilir"
   await event.reply(helptext)
 
 @client.on(events.NewMessage())
@@ -76,7 +76,7 @@ async def mentionall(event):
   global anlik_calisan
   rxyzdev_tagTot[event.chat_id] = 0
   if event.is_private:
-    return await event.respond("__Bᴜ Kᴏᴍᴜᴛ Gʀᴜᴘʟᴀʀᴅᴀ Vᴇ Kᴀɴᴀʟʟᴀʀᴅᴀ Kᴜʟʟᴀɴıʟᴀʙɪʟɪʀ.!__")
+    return await event.respond("__Bu Komut Sadace Grublarda ve Kanallarda Kullanıma Bilir!__")
   
   admins = []
   async for admin in client.iter_participants(event.chat_id):
