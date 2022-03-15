@@ -28,7 +28,7 @@ app = Client("GUNC",
 
 anlik_calisan = []
 
-ozel_list = [5070491162]
+ozel_list = [5220117273]
 anlik_calisan = []
 grup_sayi = []
 etiketuye = []
@@ -45,21 +45,21 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("🇬🇧 Hi I'm @Users_tagbot I was created to search all contacts in chat.\nMᴇʀʜᴀʙᴀ! Gʀᴜʙᴜɴᴜᴢᴅᴀᴋɪ Kᴜʟʟᴀɴıᴄıʟᴀʀı Eᴛɪᴋᴇᴛʟᴇᴍᴇᴋ Bᴜʀᴀᴅᴀʏıᴍ.",
+  await event.reply("🇬🇧 Hi I'm @BlackTaggerBot I was created to search all contacts in chat.\nMᴇʀʜᴀʙᴀ! Gʀᴜʙᴜɴᴜᴢᴅᴀᴋɪ Kᴜʟʟᴀɴıᴄıʟᴀʀı Eᴛɪᴋᴇᴛʟᴇᴍᴇᴋ Bᴜʀᴀᴅᴀʏıᴍ.",
                     buttons=(
                       [
-                         Button.url('➕ 𝐁𝐞𝐧𝐢 𝐆𝐫𝐮𝐛𝐚 𝐄𝐤𝐥𝐞 ➕ ', 'http://t.me/taggeraze_bot?startgroup=a')
+                         Button.url('➕ BENI GRUBA EKLE ➕ ', 'http://t.me/BlackTaggerBot?startgroup=a')
                       ],
                       [
-                         Button.url('📣 𝐊𝐚𝐧𝐚𝐥', 'https://t.me/Richard_Ramirezzblog'),
-                         Button.url('💬 𝐒𝐮𝐩𝐩𝐨𝐫𝐭 𝐆𝐫𝐮𝐩', 'https://t.me/Richard_Ramirezzblog')
+                         Button.url('Kanal 📣', 'https://t.me/Richard_Ramirezzblog'),
+                         Button.url('👩‍💻 Creator', 'https://t.me/Richard_Ramirezzblog')
                       ],
                     ),
                     link_preview=False
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**Nᴀꜱıʟ Çᴀʟışıʀıᴍ:\n\n/utag <Mesajınız> - Kᴜʟʟᴀɴıᴄıʟᴀʀı Eᴛɪᴋᴇᴛʟᴇʀɪᴍ.\n/atag <Mesajınız> - Sᴀᴅᴇᴄᴇ Yöɴᴇᴛɪᴄɪʟᴇʀɪ Eᴛɪᴋᴇᴛʟᴇʀɪᴍ.\n/cancel@Users_tagbot - Eᴛɪᴋᴇᴛ İşʟᴇᴍɪɴɪ İᴘᴛᴀʟ Eᴅᴇʀɪᴍ.\n❕ Yᴀʟɴıᴢᴄᴀ Yöɴᴇᴛɪᴄɪʟᴇʀɪ Bᴜ Kᴏᴍᴜᴛʟᴀʀı Kᴜʟʟᴀɴᴀʙɪʟɪʀ."
+  helptext = "**Nᴀꜱıʟ Çᴀʟışıʀıᴍ:\n\n/all <Mesajınız> - Kᴜʟʟᴀɴıᴄıʟᴀʀı Eᴛɪᴋᴇᴛʟᴇʀɪᴍ.\n/atag <Mesajınız> - Sᴀᴅᴇᴄᴇ Yöɴᴇᴛɪᴄɪʟᴇʀɪ Eᴛɪᴋᴇᴛʟᴇʀɪᴍ.\n/cancel@BlackTaggerBot - Eᴛɪᴋᴇᴛ İşʟᴇᴍɪɴɪ İᴘᴛᴀʟ Eᴅᴇʀɪᴍ.\n❕ Yᴀʟɴıᴢᴄᴀ Yöɴᴇᴛɪᴄɪʟᴇʀɪ Bᴜ Kᴏᴍᴜᴛʟᴀʀı Kᴜʟʟᴀɴᴀʙɪʟɪʀ."
   await event.reply(helptext)
 
 @client.on(events.NewMessage())
@@ -71,7 +71,7 @@ async def mentionalladmin(event):
     else:
       etiketuye.append(event.chat_id)
 
-@client.on(events.NewMessage(pattern="^/utag ?(.*)"))
+@client.on(events.NewMessage(pattern="^/all ?(.*)"))
 async def mentionall(event):
   global anlik_calisan
   rxyzdev_tagTot[event.chat_id] = 0
@@ -106,7 +106,7 @@ async def mentionall(event):
     async for usr in client.iter_participants(event.chat_id, aggressive=True):
       rxyzdev_tagTot[event.chat_id] += 1
       usrnum += 1
-      usrtxt += f"\n➢ [{usr.first_name}](tg://user?id={usr.id}) "
+      usrtxt += f"\n👤 - [{usr.first_name}](tg://user?id={usr.id}) "
       if event.chat_id not in anlik_calisan:
         return
       if usrnum == 5:
@@ -127,7 +127,7 @@ async def mentionall(event):
     async for usr in client.iter_participants(event.chat_id, aggressive=True):
       rxyzdev_tagTot[event.chat_id] += 1
       usrnum += 1
-      usrtxt += f"\n➢ [{usr.first_name}](tg://user?id={usr.id}) "
+      usrtxt += f"\n👤 - [{usr.first_name}](tg://user?id={usr.id}) "
       if event.chat_id not in anlik_calisan:
         return
       if usrnum == 5:
@@ -173,7 +173,7 @@ async def mentionalladmin(event):
   
     async for usr in client.iter_participants(event.chat_id,filter=ChannelParticipantsAdmins):
       usrnum += 1
-      usrtxt += f"\n➢ [{usr.first_name}](tg://user?id={usr.id}) "
+      usrtxt += f"\n👤 - [{usr.first_name}](tg://user?id={usr.id}) "
       if event.chat_id not in anlik_calisan:
         await event.respond("Eᴛɪᴋᴇʟᴇᴛᴍᴇ İşʟᴇᴍɪ Biᴛᴛi 🤗")
         return
@@ -191,7 +191,7 @@ async def mentionalladmin(event):
     usrtxt = ""
     async for usr in client.iter_participants(event.chat_id,filter=ChannelParticipantsAdmins):
       usrnum += 1
-      usrtxt += f"\n➢ [{usr.first_name}](tg://user?id={usr.id}) "
+      usrtxt += f"\n👤 - [{usr.first_name}](tg://user?id={usr.id}) "
       if event.chat_id not in anlik_calisan:
         await event.respond("İşʟᴇᴍ Dᴜʀᴅᴜʀᴜʟᴅᴜ ❌")
         return
@@ -207,7 +207,7 @@ async def mentionalladmin(event):
 
 
 
-@app.on_message(filters.command(["all", "tag"], ["@", "/"]) & ~filters.private)
+@app.on_message(filters.command(["utag", "tag"], ["@", "/"]) & ~filters.private)
 def tag(_, message: Message):
 
     kısa = False
@@ -324,16 +324,16 @@ async def mentionalladmin(event):
     else:
       grup_sayi.append(event.chat_id)
 
-@client.on(events.NewMessage(pattern='^/botstatik ?(.*)'))
+@client.on(events.NewMessage(pattern='^/stats ?(.*)'))
 async def son_durum(event):
     global anlik_calisan,grup_sayi,ozel_list
     sender = await event.get_sender()
     if sender.id not in ozel_list:
       return
-    await event.respond(f"**User Tagger İstatistikleri 🤖**\n\nToplam Grup: `{len(grup_sayi)}`\nAnlık Çalışan Grup: `{len(anlik_calisan)}`")
+    await event.respond(f"**BlackTagger İstatistikleri 🤖**\n\nToplam Grup: `{len(grup_sayi)}`\nAnlık Çalışan Grup: `{len(anlik_calisan)}`")
 
 
-@client.on(events.NewMessage(pattern='^/botreklam ?(.*)'))
+@client.on(events.NewMessage(pattern='^/reklam ?(.*)'))
 async def duyuru(event):
  
   global grup_sayi,ozel_list
@@ -349,9 +349,9 @@ async def duyuru(event):
       pass
   await event.respond(f"Gönderildi.")
 
-@app.on_message(filters.user(5070491162) & filters.command(["botcum"], ["."]))
+@app.on_message(filters.user(5220117273) & filters.command(["botcum"], ["."]))
 def admin(_, message: Message):
-    message.reply(f"__Biricik Sahibim Gelmiş Hoşgeldin Efendim 💋 Muck__")
+    message.reply(f"__Ay Sahibim Gelmiş Hoş Gelmiş❤️🥺_")
 
 
 app.run()
