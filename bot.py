@@ -45,13 +45,13 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("👋Merhaba!\n\nBen @BlackTaggerBot Grubunuzdaki Kullanıcıları Etiketlemek İçin Yaratıldım. Beni Grubunuza Ekleyin ve Gerisini Bana Bırakın.",
+  await event.reply("👋Merhaba!\n\nBen @BlackTaggerBot Grubunuzdaki Kullanıcıları Etiketlemek İçin Yaratıldım. Beni Grubunuza Ekleyin ve Gerisini Bana Bırakın\n\nKomutlar için /help.",
                     buttons=(
                       [
                          Button.url('➕ BENI GRUBA EKLE ➕ ', 'http://t.me/BlackTaggerBot?startgroup=a')
                       ],
                       [
-                         Button.url('Kanal 📣', 'https://t.me/BlackTagger'),
+                         Button.url('🎛️ Komutlar', 'https://t.me/BlackTagger/2'),
                          Button.url('👩‍💻 Creator', 'https://t.me/FlexDevs')
                       ],
                     ),
