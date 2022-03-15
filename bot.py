@@ -27,14 +27,14 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("**Merhaba Ben @CosmicTaggerBot\n Grubunuzda Üyeleri Etiketleye bilirim \n\n Nasıl Çalıştığıma Bakmak için /help yaza bilirsin**",
+  await event.reply("**Merhaba 👋 !\nBen  @BlackTaggerBot\nGrubunun üyelerini etiketlemek için buradayım.\nKomutlar hakkında bilgi almak için /help yazabilirsiniz.\n\nKanal: @FlexBots**",
                     buttons=(
                       [
-                      Button.url('➕Beni Gruba Ekle➕', 'https://t.me/CosmicTaggerBot?startgroup=a'),
-                      Button.url('🛠️ Creator 🛠️', 'https://t.me/DexRoFF')
+                      Button.url('➕ Beni Gruba Ekle', 'https://t.me/BlackTaggerBot?startgroup=a'),
+                      Button.url('🛠️ Developer', 'https://t.me/FlexDevs')
                       ],
                       [
-                      Button.url('📣 Resmi Kanal 📣', 'https://t.me/Cosmic_MMC')
+                      Button.url('⚙️ Support', 'https://t.me/FlexBots')
                       ]
                     ),
                     link_preview=False
@@ -50,11 +50,11 @@ async def help(event):
   await event.reply(helptext,
                     buttons=(
                       [
-                      Button.url('➕Beni Gruba Ekle➕', 'https://t.me/CosmicTaggerBot?startgroup=a'),
-                      Button.url('🛠️ Creator 🛠️', 'https://t.me/DexRoFF')
+                      Button.url('➕ Beni Gruba Ekle', 'https://t.me/CosmicTaggerBot?startgroup=a'),
+                      Button.url('🛠️ Developer', 'https://t.me/DexRoFF')
                       ],
                       [
-                      Button.url('📣 Resmi Kanal 📣', 'https://t.me/Cosmic_MMC')
+                      Button.url('⚙️ Support', 'https://t.me/FlexBots')
                       ]
                     ),
                     link_preview=False
