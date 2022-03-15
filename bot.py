@@ -62,16 +62,15 @@ async def help(event):
 
 @client.on(events.NewMessage(pattern="^/all ?(.*)"))
 async def mentionall(event):
-  user = await event.get_sender()
   global anlik_calisan
   if event.is_private:
-    return await event.respond("**Bu Komut Gruplarda ve Kanallarda Kullanılabilir.!**")
+    return await event.respond(f"{noqrup}")
   
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
     admins.append(admin.id)
   if not event.sender_id in admins:
-    return await event.respond("**Yalnızca Yöneticiler Hepsinden Bahsedebilir!**")
+    return await event.respond(f"{noadmin}")
   
   if event.pattern_match.group(1):
     mode = "text_on_cmd"
@@ -80,13 +79,14 @@ async def mentionall(event):
     mode = "text_on_reply"
     msg = event.reply_to_msg_id
     if msg == None:
-        return await event.respond("**Eski mesajlar için üyelerden bahsedemem! (gruba eklemeden önce gönderilen mesajlar)**")
+        return await event.respond("**Eski mesajları göremiyorum! (bu mesaj beni gruba eklemeden önce yazılmış)**")
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
-    return await event.respond("**Bana bir argüman ver!**")
+    return await event.respond("**Etiketleme mesajı yazmadın!**")
   else:
-    return await event.respond("**Bir mesajı yanıtlayın veya başkalarından bahsetmem için bana bir metin verin!**")
-  
+    return await event.respond("**Etiketleme için bir mesajı yanıtlayın veya bir mesaj yazın!**")
+    
   if mode == "text_on_cmd":
+    await client.send_message(event.chat_id, ("📢 **İşlem Başarıyla Başladı**")
     anlik_calisan.append(event.chat_id)
     usrnum = 0
     usrtxt = ""
