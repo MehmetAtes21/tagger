@@ -82,7 +82,7 @@ async def mentionall(event):
   async for admin in client.iter_participants(event.chat_id):
     admins.append(admin.id)
   if not event.sender_id in admins:
-    return await event.respond("__Yᴀʟɴıᴢᴄᴀ Yöɴᴇᴛɪᴄɪʟᴇʀ Eᴛɪᴋᴇᴛ İşʟᴇᴍɪ Yᴀᴘᴀʙɪʟɪʀ!__")
+    return await event.respond("__Yalnızca Yöneticiler Etiket işlemini Yapabilir__")
   
   if event.pattern_match.group(1):
     mode = "text_on_cmd"
