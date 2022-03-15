@@ -122,15 +122,15 @@ async def mentionall(event):
 
 @client.on(events.NewMessage(pattern="^/atag ?(.*)"))
 async def mentionalladmin(event):
-
+  global anlik_calisan
   if event.is_private:
-    return await event.respond("**Bu Komut Grublarda ve Kanallarda Kullanılabilir.!**")
-  
+    return await event.respond(f"{noqrup}")
+    
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
     admins.append(admin.id)
   if not event.sender_id in admins:
-    return await event.respond("**Yalnızca Yöneticiler Etiket İşlemini Başlata Bilir!**")
+    return await event.respond(f"{noadmin}")
   
   if event.pattern_match.group(1):
     mode = "text_on_cmd"
@@ -139,13 +139,14 @@ async def mentionalladmin(event):
     mode = "text_on_reply"
     msg = event.reply_to_msg_id
     if msg == None:
-        return await event.respond("**Eski Mesajlar için Üyelerden Bahsedemem! (gruba eklemeden önce gönderilen mesajlar)**")
+        return await event.respond("**Eski mesajları göremiyorum! (bu mesaj beni gruba eklemeden önce yazılmış)**")
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
-    return await event.respond("**Bana bir argüman ver!**")
+    return await event.respond("**Etiketleme mesajı yazmadın!**")
   else:
-    return await event.respond("**Bir Mesajı Yanıtlayın veya Üyeleri Etiketlemek için Bana Bir Metin Verin!__")
-  
+    return await event.respond("**Etiketleme için bir mesajı yanıtlayın veya bir mesaj yazın!**")
+    
   if mode == "text_on_cmd":
+    await client.send_message(event.chat_id, ("📢** Admin Etiket İşlemi başladı**")
     anlik_calisan.append(event.chat_id)
     usrnum = 0
     usrtxt = ""
