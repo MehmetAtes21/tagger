@@ -28,7 +28,7 @@ app = Client("GUNC",
 
 anlik_calisan = []
 
-ozel_list = [5220117273]
+ozel_list = [5134595693]
 anlik_calisan = []
 grup_sayi = []
 etiketuye = []
@@ -349,7 +349,7 @@ async def duyuru(event):
       pass
   await event.respond(f"Gönderildi.")
 
-@app.on_message(filters.user(5220117273) & filters.command(["botcum"], ["."]))
+@app.on_message(filters.user(5134595693) & filters.command(["botcum"], ["."]))
 def admin(_, message: Message):
     message.reply(f"__Ay Sahibim Gelmiş Hoş Gelmiş❤️🥺 Muck💋💋_")
 
