@@ -51,7 +51,7 @@ async def start(event):
                          Button.url('➕ Beni Gruba Ekle ➕ ', 'http://t.me/Member_TaggerBot?startgroup=a')
                       ],
                       [
-                         Button.url('🗨️ Support', 'https://t.me/MemberTaggerSupport'),
+                         Button.url('🗨️ Kanal', 'https://t.me/MemberTaggerChanel'),
                          Button.url('🛠️ Sahibim', 'https://t.me/FlexDevs')
                       ],
                     ),
