@@ -51,7 +51,7 @@ async def start(event):
                          Button.url('➕ BENI GRUBA EKLE ➕ ', 'http://t.me/teammtagger_bot?startgroup=a')
                       ],
                       [
-                         Button.url('🎛️ Komutlar', 'https://t.me/BlackTaggerBot/2'),
+                         Button.url('📣 Resmi Kanal', 'https://t.me/teamtag1'),
                          Button.url('👩‍💻 Creator', 'https://t.me/teamstar125')
                       ],
                     ),
