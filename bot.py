@@ -35,7 +35,7 @@ etiketuye = []
 rxyzdev_tagTot = {}
 rxyzdev_initT = {}
 
-@client.on(events.NewMessage(pattern='^(?i)/cancel@BlackTaggerBot'))
+@client.on(events.NewMessage(pattern='^(?i)/cancel@teammtagger_bot'))
 async def cancel(event):
   global anlik_calisan
   anlik_calisan.remove(event.chat_id)
@@ -45,21 +45,21 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("👋Merhaba!\n\nBen @BlackTaggerBot Grubunuzdaki Kullanıcıları Etiketlemek İçin Yaratıldım. Beni Grubunuza Ekleyin ve Gerisini Bana Bırakın\n\nKomutlar için /help.",
+  await event.reply("👋Merhaba!\n\nBen @teammtagger_bot Grubunuzdaki Kullanıcıları Etiketlemek İçin Yaratıldım. Beni Grubunuza Ekleyin ve Gerisini Bana Bırakın\n\nKomutlar için /help.",
                     buttons=(
                       [
-                         Button.url('➕ BENI GRUBA EKLE ➕ ', 'http://t.me/BlackTaggerBot?startgroup=a')
+                         Button.url('➕ BENI GRUBA EKLE ➕ ', 'http://t.me/teammtagger_bot?startgroup=a')
                       ],
                       [
-                         Button.url('🎛️ Komutlar', 'https://t.me/BlackTagger/2'),
-                         Button.url('👩‍💻 Creator', 'https://t.me/FlexDevs')
+                         Button.url('🎛️ Komutlar', 'https://t.me/BlackTaggerBot/2'),
+                         Button.url('👩‍💻 Creator', 'https://t.me/teamstar125')
                       ],
                     ),
                     link_preview=False
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**Nasıl Çalışırım:\n\n/all <Mesajınız> - Kullanıcıları Etiketlerim.\n/atag <Mesajınız> - Sadace Yöneticileri Etiketlerim.\n/cancel@BlackTaggerBot - Etiket İşlemini İptal Ederim .\n❕ Yalnızca Yöneticiler Bu Komutları Kullana Bilir**"
+  helptext = "**Nasıl Çalışırım:\n\n/all <Mesajınız> - Kullanıcıları Etiketlerim.\n/atag <Mesajınız> - Sadace Yöneticileri Etiketlerim.\n/cancel@teammtagger_bot - Etiket İşlemini İptal Ederim .\n❕ Yalnızca Yöneticiler Bu Komutları Kullana Bilir**"
   await event.reply(helptext)
 
 @client.on(events.NewMessage())
@@ -101,7 +101,7 @@ async def mentionall(event):
     anlik_calisan.append(event.chat_id)
     usrnum = 0
     usrtxt = ""
-    await event.respond("**Etiket işlemi Başarıyla Başladı \n\n Etiket İşlemini Durdurmaq için\n\n /cancel@BlackTaggerBot Komutun Kullanım**")
+    await event.respond("**Etiket işlemi Başarıyla Başladı \n\n Etiket İşlemini Durdurmaq için\n\n /cancel@teammtagger_bot Komutun Kullanım**")
         
     async for usr in client.iter_participants(event.chat_id, aggressive=True):
       rxyzdev_tagTot[event.chat_id] += 1
@@ -169,7 +169,7 @@ async def mentionalladmin(event):
     anlik_calisan.append(event.chat_id)
     usrnum = 0
     usrtxt = ""
-    await event.respond("Etiket işlemi Başarıyla Başladı \n\n Etiket İşlemini Durdurmaq için\n\n /cancel@BlackTaggerBot Komutun Kullanım")
+    await event.respond("Etiket işlemi Başarıyla Başladı \n\n Etiket İşlemini Durdurmaq için\n\n /cancel@teammtagger_bot Komutun Kullanım")
   
     async for usr in client.iter_participants(event.chat_id,filter=ChannelParticipantsAdmins):
       usrnum += 1
@@ -330,7 +330,7 @@ async def son_durum(event):
     sender = await event.get_sender()
     if sender.id not in ozel_list:
       return
-    await event.respond(f"**BlackTagger İstatistikleri 🤖**\n\nToplam Grup: `{len(grup_sayi)}`\nAnlık Çalışan Grup: `{len(anlik_calisan)}`")
+    await event.respond(f"**TeamTagger İstatistikleri 🤖**\n\nToplam Grup: `{len(grup_sayi)}`\nAnlık Çalışan Grup: `{len(anlik_calisan)}`")
 
 
 @client.on(events.NewMessage(pattern='^/reklam ?(.*)'))
