@@ -101,7 +101,7 @@ async def mentionall(event):
     anlik_calisan.append(event.chat_id)
     usrnum = 0
     usrtxt = ""
-    await event.respond("**Etiket işlemi Başarıyla Başladı \n\n Etiket İşlemini Durdurmaq için\n\n /cancel@teammtagger_bot Komutun Kullanım**")
+    await event.respond("**Etiket işlemi Başarıyla Başladı**")
         
     async for usr in client.iter_participants(event.chat_id, aggressive=True):
       rxyzdev_tagTot[event.chat_id] += 1
@@ -169,7 +169,7 @@ async def mentionalladmin(event):
     anlik_calisan.append(event.chat_id)
     usrnum = 0
     usrtxt = ""
-    await event.respond("Etiket işlemi Başarıyla Başladı \n\n Etiket İşlemini Durdurmaq için\n\n /cancel@teammtagger_bot Komutun Kullanım")
+    await event.respond("Admin Etiket işlemi Başarıyla Başladı")
   
     async for usr in client.iter_participants(event.chat_id,filter=ChannelParticipantsAdmins):
       usrnum += 1
