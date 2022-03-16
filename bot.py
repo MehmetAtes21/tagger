@@ -40,7 +40,7 @@ async def cancel(event):
   global anlik_calisan
   anlik_calisan.remove(event.chat_id)
   
-  if event.chat_id in rxyzdev_tagTot:await event.respond(f"❌ Etiket işlemi durduruldu.\n\n Etiketlerin Sayı: {rxyzdev_tagTot[event.chat_id]} \n\n@BlackTaggerBot")
+  if event.chat_id in rxyzdev_tagTot:await event.respond(f"❌ Etiket işlemi durduruldu.\n\n Etiketlerin Sayı: {rxyzdev_tagTot[event.chat_id]} \n\n@Member_TaggerBot")
 
 
 @client.on(events.NewMessage(pattern="^/start$"))
