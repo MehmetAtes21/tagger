@@ -28,7 +28,7 @@ app = Client("GUNC",
 
 anlik_calisan = []
 
-ozel_list = [5134595693]
+ozel_list = [5220117273]
 anlik_calisan = []
 grup_sayi = []
 etiketuye = []
@@ -52,7 +52,7 @@ async def start(event):
                          Button.url('🗨️ Sohbet', 'https://t.me/FlexSuppprt')
                       ],
                       [
-                         Button.url('🛠️ Creator', 'https://t.me/teamstar125')
+                         Button.url('🛠️ Creator', 'https://t.me/FlexBots')
                       ],
                     ),
                     link_preview=False
@@ -66,7 +66,7 @@ async def help(event):
                          Button.url('🗨️ Sohbet', 'https://t.me/FlexSuppprt')
                       ],
                       [
-                         Button.url('🛠️ Creator', 'https://t.me/teamstar125')
+                         Button.url('📣 Update', 'https://t.me/FlexBots')
                       ],
                     ),
                     link_preview=False
@@ -358,7 +358,7 @@ async def duyuru(event):
       pass
   await event.respond(f"Gönderildi.")
 
-@app.on_message(filters.user(5134595693) & filters.command(["botcum"], ["."]))
+@app.on_message(filters.user(5220117273) & filters.command(["botcum"], ["."]))
 def admin(_, message: Message):
     message.reply(f"__Ay Sahibim Gelmiş Hoş Gelmiş❤️🥺 Muck💋💋_")
 
