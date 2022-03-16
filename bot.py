@@ -52,7 +52,7 @@ async def start(event):
                       ],
                       [
                          Button.url('🗨️ Support', 'https://t.me/MemberTaggerSupport'),
-                         Button.url('🛠️' Sahibim, 'https://t.me/FlexDevs')
+                         Button.url('🛠️ Sahibim', 'https://t.me/FlexDevs')
                       ],
                     ),
                     link_preview=False
