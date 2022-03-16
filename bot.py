@@ -35,7 +35,7 @@ etiketuye = []
 rxyzdev_tagTot = {}
 rxyzdev_initT = {}
 
-@client.on(events.NewMessage(pattern='^(?i)/cancel@teammtagger_bot'))
+@client.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event):
   global anlik_calisan
   anlik_calisan.remove(event.chat_id)
@@ -45,23 +45,32 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("👋Merhaba!\n\nBen @teammtagger_bot Grubunuzdaki Kullanıcıları Etiketlemek İçin Yaratıldım. Beni Grubunuza Ekleyin ve Gerisini Bana Bırakın\n\nKomutlar için /help.",
+  await event.reply("**@TagAllDeBot, gruplarda üyelerinizden bahsedebilir.Destek için ==> /help**",
                     buttons=(
                       [
-                         Button.url('➕ BENI GRUBA EKLE ➕ ', 'http://t.me/teammtagger_bot?startgroup=a')
+                         Button.url('➕ Beni Gruba Ekle', 'http://t.me/TagAllDeBot?startgroup=a')
+                         Button.url('🗨️ Sohbet', 'https://t.me/FlexSuppprt')
                       ],
                       [
-                         Button.url('📣 Resmi Kanal', 'https://t.me/teamtag1'),
-                         Button.url('👩‍💻 Creator', 'https://t.me/teamstar125')
+                         Button.url('🛠️ Creator', 'https://t.me/teamstar125')
                       ],
                     ),
                     link_preview=False
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**Nasıl Çalışırım:\n\n/all <Mesajınız> - Kullanıcıları Etiketlerim.\n/atag <Mesajınız> - Sadace Yöneticileri Etiketlerim.\n/cancel@teammtagger_bot - Etiket İşlemini İptal Ederim .\n❕ Yalnızca Yöneticiler Bu Komutları Kullana Bilir**"
-  await event.reply(helptext)
-
+  await event.reply("Komut:\n\n/all -text-\n/atag -text-\n/cancel - işlemi durdurur...\n\nKomutlar gruplarda çalışmaktadır.",
+                    buttons=(
+                      [
+                         Button.url('➕ Beni Gruba Ekle', 'http://t.me/TagAllDeBot?startgroup=a')
+                         Button.url('🗨️ Sohbet', 'https://t.me/FlexSuppprt')
+                      ],
+                      [
+                         Button.url('🛠️ Creator', 'https://t.me/teamstar125')
+                      ],
+                    ),
+                    link_preview=False
+                   )
 @client.on(events.NewMessage())
 async def mentionalladmin(event):
   global etiketuye
