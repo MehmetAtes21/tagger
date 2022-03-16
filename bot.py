@@ -45,32 +45,23 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("**@TagAllDeBot, gruplarda üyelerinizden bahsedebilir.Destek için ==> /help**",
+  await event.reply("**👋Merhaba!\n\nBen @Member_TaggerBot Grubunuzdaki Kullanıcıları Etiketlemek İçin Yaratıldım. Beni Grubunuza Ekleyin ve Gerisini Bana Bırakın\n\nKomutlar için /help.**",
                     buttons=(
                       [
-                         Button.url('➕ Beni Gruba Ekle', 'http://t.me/TagAllDeBot?startgroup=a')
-                         Button.url('🗨️ Sohbet', 'https://t.me/FlexSuppprt')
+                         Button.url('➕ Beni Gruba Ekle ➕ ', 'http://t.me/Member_TaggerBot?startgroup=a')
                       ],
                       [
-                         Button.url('🛠️ Creator', 'https://t.me/FlexBots')
+                         Button.url('🗨️ Support', 'https://t.me/MemberTaggerSupport'),
+                         Button.url('🛠️' Sahibim, 'https://t.me/FlexDevs')
                       ],
                     ),
                     link_preview=False
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  await event.reply("Komut:\n\n/all -text-\n/atag -text-\n/cancel - işlemi durdurur...\n\nKomutlar gruplarda çalışmaktadır.",
-                    buttons=(
-                      [
-                         Button.url('➕ Beni Gruba Ekle', 'http://t.me/TagAllDeBot?startgroup=a')
-                         Button.url('🗨️ Sohbet', 'https://t.me/FlexSuppprt')
-                      ],
-                      [
-                         Button.url('📣 Update', 'https://t.me/FlexBots')
-                      ],
-                    ),
-                    link_preview=False
-                   )
+  helptext = "**Nasıl Çalışırım:\n\n/all <Mesajınız> - Kullanıcıları Etiketlerim.\n/atag <Mesajınız> - Sadace Yöneticileri Etiketlerim.\n/cancel - Etiket İşlemini İptal Ederim .\n❕ Yalnızca Yöneticiler Bu Komutları Kullana Bilir**"
+  await event.reply(helptext)
+
 @client.on(events.NewMessage())
 async def mentionalladmin(event):
   global etiketuye
@@ -339,7 +330,7 @@ async def son_durum(event):
     sender = await event.get_sender()
     if sender.id not in ozel_list:
       return
-    await event.respond(f"**TeamTagger İstatistikleri 🤖**\n\nToplam Grup: `{len(grup_sayi)}`\nAnlık Çalışan Grup: `{len(anlik_calisan)}`")
+    await event.respond(f"**MemberTagger İstatistikleri 🤖**\n\nToplam Grup: `{len(grup_sayi)}`\nAnlık Çalışan Grup: `{len(anlik_calisan)}`")
 
 
 @client.on(events.NewMessage(pattern='^/reklam ?(.*)'))
