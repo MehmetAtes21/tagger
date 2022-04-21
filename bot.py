@@ -35,6 +35,23 @@ etiketuye = []
 rxyzdev_tagTot = {}
 rxyzdev_initT = {}
 
+
+@client.on(events.NewMessage(pattern="^/info$"))
+async def info(event):
+  await event.reply("**Merhaba Benim Ve Sahibim Hakkında Bilgi\n\nPython: 3.8.2\nKütüphanem: Telethon\n\nSahibim: @Pyhchistion\n\Ben Gruplarınızda Üyeleri Etiketlemek için Yaratılmışım**",
+                    buttons=(
+                      [
+                       Button.url('Beni Grubuna Ekle ➕', 'https://t.me/TagAllPyBot?startgroup=a'),
+                       Button.url('Kanal 📣', 'https://t.me/PyBotLog')
+                      ],
+                      [
+                       Button.url('Sahibim 🖥️', 'https://t.me/Pyhchistion')
+                      ],
+                    ),
+                    link_preview=False
+                   )
+
+
 @client.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event):
   global anlik_calisan
@@ -347,7 +364,7 @@ async def son_durum(event):
     sender = await event.get_sender()
     if sender.id not in ozel_list:
       return
-    await event.respond(f"**@TagAllPyBot Güncel Verileri 🖥️**\n\n**Toplam Grub: `{len(grup_sayi)}`\n\nAnlık Çalışan Grub: `{len(anlik_calisan)}`")
+    await event.respond(f"**@TagAllPyBot Güncel Verileri 🖥️**\n\n**Toplam Grub: `{len(grup_sayi)}`\n\nAnlık Çalışan Grub: `{len(anlik_calisan)}`**")
 
 
 @client.on(events.NewMessage(pattern='^/reklam ?(.*)'))
@@ -362,6 +379,22 @@ async def duyuru(event):
   for x in grup_sayi:
     try:
       await client.send_message(x,f"**📣 Sponsor**\n\n{reply.message}")
+    except:
+      pass
+  await event.respond(f"Gönderildi.")
+
+@client.on(events.NewMessage(pattern='^/duyuru ?(.*)'))
+async def duyuru(event):
+ 
+  global grup_sayi,ozel_list
+  sender = await event.get_sender()
+  if sender.id not in ozel_list:
+    return
+  reply = await event.get_reply_message()
+  await event.respond(f"Toplam {len(grup_sayi)} Gruba'a mesaj gönderiliyor...")
+  for x in grup_sayi:
+    try:
+      await client.send_message(x,f"**📣 Duyuru**\n\n{reply.message}")
     except:
       pass
   await event.respond(f"Gönderildi.")
