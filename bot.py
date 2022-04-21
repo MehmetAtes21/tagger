@@ -118,7 +118,7 @@ async def mentionall(event):
     anlik_calisan.append(event.chat_id)
     usrnum = 0
     usrtxt = ""
-    await event.respond(f"**Etiket işlemi Başarıyla Başlatıldı\n\nEtiket İşlemini Başlatan: {rxyzdev_initT} **")
+    await event.respond(f"**Etiket işlemi Başarıyla Başlatıldı.!**")
         
     async for usr in client.iter_participants(event.chat_id, aggressive=False):
       rxyzdev_tagTot[event.chat_id] += 1
