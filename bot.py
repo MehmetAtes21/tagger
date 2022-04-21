@@ -41,7 +41,7 @@ rxyzdev_tagTot = {}
 rxyzdev_initT = {}
 
 
-@client.on(events.NewMessage(pattern="^/info$"))
+@client.on(events.NewMessage(pattern="^/botinfo$"))
 async def info(event):
   await event.reply("**Merhaba Benim Ve Sahibim Hakkında Bilgi\n\nPython: 3.8.2\nKütüphanem: Telethon\n\nSahibim: @Pyhchistion\n\Ben Gruplarınızda Üyeleri Etiketlemek için Yaratılmışım**",
                     buttons=(
