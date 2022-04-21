@@ -48,19 +48,35 @@ async def start(event):
   await event.reply("**👋Merhaba!\n\nBen @Member_TaggerBot Grubunuzdaki Kullanıcıları Etiketlemek İçin Yaratıldım. Beni Grubunuza Ekleyin ve Gerisini Bana Bırakın\n\nKomutlar için /help.**",
                     buttons=(
                       [
-                         Button.url('➕ Beni Gruba Ekle ➕ ', 'http://t.me/Member_TaggerBot?startgroup=a')
+                       Button.url('Beni Grubuna Ekle ➕', 'https://t.me/TagAllPyBot?startgroup=a'),
+                       Button.url('Kanal 📣', 'https://t.me/PyBotLog')
                       ],
                       [
-                         Button.url('🗨️ Kanal', 'https://t.me/MemberTaggerChanel'),
-                         Button.url('🛠️ Sahibim', 'https://t.me/FlexDevs')
+                       Button.url('Sahibim 🖥️', 'https://t.me/Pyhchistion')
                       ],
                     ),
                     link_preview=False
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**Nasıl Çalışırım:\n\n/all <Mesajınız> - Kullanıcıları Etiketlerim.\n/atag <Mesajınız> - Sadace Yöneticileri Etiketlerim.\n/cancel - Etiket İşlemini İptal Ederim .\n❕ Yalnızca Yöneticiler Bu Komutları Kullana Bilir**"
-  await event.reply(helptext)
+  helptext = """Komutlarım:
+/utag -text-
+/atag -text-
+/cancel - Etiket işlemini iptal ederim.
+❕ Yalnızca yöneticileri bu komutları kullanabilir."""
+  await event.reply(helptext,
+                    buttons=(
+                      [
+                       Button.url('Beni Grubuna Ekle ➕', 'https://t.me/TagAllPyBot?startgroup=a'),
+                       Button.url('Kanal 📣', 'https://t.me/PyBotLog')
+                      ],
+                      [
+                       Button.url('Sahibim 🖥️', 'https://t.me/Pyhchistion')
+                      ],
+                    ),
+                    link_preview=False
+                   )
+
 
 @client.on(events.NewMessage())
 async def mentionalladmin(event):
