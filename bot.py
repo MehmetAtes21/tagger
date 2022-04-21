@@ -112,7 +112,7 @@ async def mentionall(event):
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
     return await event.respond("**Bana Bir Metin Ver!**")
   else:
-    return await event.respond(""**Bir Mesajı Yanıtlayın veya Başkalarından Bahsetmem için Bana Bir Betin Verin!!**")
+    return await event.respond("**Bir Mesajı Yanıtlayın veya Başkalarından Bahsetmem için Bana Bir Betin Verin!!**")
   
   if mode == "text_on_cmd":
     anlik_calisan.append(event.chat_id)
