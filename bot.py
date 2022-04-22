@@ -67,8 +67,14 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("**@TagAllPyBot, Grubunuzda Üyeleri Etiketleyerek Çağıra Bilirim.\nDestek için ==> /help**",
-                    buttons=(
+  if event.is_private:
+    async for usr in client.iter_participants(event.chat_id):
+     ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
+     await client.send_message(log_qrup, f"ℹ️ **Yeni İstifadeci -** {ad}")
+     return await event.reply(f"**@TagAllPyBot, Grubunuzda Üyeleri Etiketleyerek Çağıra Bilirim.\nDestek için ==> /help", buttons=(
+                      [
+                       Button.inline("🎛 Komutlar", data="komutlar")
+                      ],
                       [
                        Button.url('Beni Grubuna Ekle ➕', 'https://t.me/TagAllPyBot?startgroup=a'),
                        Button.url('Kanal 📣', 'https://t.me/PyBotLog')
@@ -77,18 +83,21 @@ async def start(event):
                        Button.url('Sahibim 🖥️', 'https://t.me/Pyhchistion')
                       ],
                     ),
-                    link_preview=False
-                   )
-@client.on(events.NewMessage(pattern="^/help$"))
-async def help(event):
-  helptext = """**Komutlarım:
-/all -text-
-/atag -text-
-/cancel - İşlemi Durdururum...
+                    link_preview=False)
 
-❕ Yalnızca yöneticileri bu komutları kullanabilir.**"""
-  await event.reply(helptext,
-                    buttons=(
+
+  if event.is_group:
+    return await client.send_message(event.chat_id, f"{qrupstart}")
+
+# Başlanğıc Button
+@client.on(events.callbackquery.CallbackQuery(data="start"))
+async def handler(event):
+    async for usr in client.iter_participants(event.chat_id):
+     ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
+     await event.edit(f"**@TagAllPyBot, Grubunuzda Üyeleri Etiketleyerek Çağıra Bilirim.\nDestek için ==> /help", buttons=(
+                      [
+                       Button.inline("🎛 Komutlar", data="komutlar")
+                      ],
                       [
                        Button.url('Beni Grubuna Ekle ➕', 'https://t.me/TagAllPyBot?startgroup=a'),
                        Button.url('Kanal 📣', 'https://t.me/PyBotLog')
@@ -97,8 +106,17 @@ async def help(event):
                        Button.url('Sahibim 🖥️', 'https://t.me/Pyhchistion')
                       ],
                     ),
-                    link_preview=False
-                   )
+                    link_preview=False)
+
+# gece kusu
+@client.on(events.callbackquery.CallbackQuery(data="komutlar"))
+async def handler(event):
+    await event.edit(f"**Komutlarım:\n\n/all -text-\n/atag -text-\n/cancel - İşlemi Durdururum...\n\n❕ Yalnızca yöneticileri bu komutları kullanabilir.**", buttons=(
+                      [
+                      Button.inline("◀️ Geri", data="start")
+                      ]
+                    ),
+                    link_preview=False)
 
 
 @client.on(events.NewMessage())
