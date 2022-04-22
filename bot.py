@@ -70,7 +70,7 @@ async def start(event):
   if event.is_private:
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await client.send_message(log_qrup, f"ℹ️ **Yeni İstifadeci -** {ad}")
+     await client.send_message(-1001786664533, f"ℹ️ **Yeni İstifadeci -** {ad}")
      return await event.reply(f"**@TagAllPyBot, Grubunuzda Üyeleri Etiketleyerek Çağıra Bilirim.\nDestek için ==> /help", buttons=(
                       [
                        Button.inline("🎛 Komutlar", data="komutlar")
@@ -87,7 +87,7 @@ async def start(event):
 
 
   if event.is_group:
-    return await client.send_message(event.chat_id, f"{qrupstart}")
+    return await client.send_message(event.chat_id, f"**Beni Grubuna Aldığın için Teşekkürler ✨**")
 
 # Başlanğıc Button
 @client.on(events.callbackquery.CallbackQuery(data="start"))
