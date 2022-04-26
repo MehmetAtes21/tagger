@@ -70,7 +70,7 @@ async def start(event):
   if event.is_private:
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await client.send_message(-1001786664533, f"ℹ️ **Yeni İstifadeci -** {ad}")
+     await client.send_message(-1001752620477, f"ℹ️ **Yeni İstifadeci -** {ad}")
      return await event.reply(f"**@MinaTagBot, Grubunuzda Üyeleri Etiketleye Bilirim.\nDestek için ==> /help**", buttons=(
                       [
                        Button.inline("Komutlar", data="komutlar")
