@@ -71,16 +71,16 @@ async def start(event):
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
      await client.send_message(-1001786664533, f"ℹ️ **Yeni İstifadeci -** {ad}")
-     return await event.reply(f"**@TagAllPyBot, Grubunuzda Üyeleri Etiketleyerek Çağıra Bilirim.\nDestek için ==> /help", buttons=(
+     return await event.reply(f"**@MinaTagBot, Grubunuzda Üyeleri Etiketleye Bilirim.\nDestek için ==> /help**", buttons=(
                       [
-                       Button.inline("🎛 Komutlar", data="komutlar")
+                       Button.inline("Komutlar", data="komutlar")
                       ],
                       [
-                       Button.url('Beni Grubuna Ekle ➕', 'https://t.me/TagAllPyBot?startgroup=a'),
-                       Button.url('Kanal 📣', 'https://t.me/PyBotLog')
+                       Button.url('Beni Grubuna Ekle', 'https://t.me/MinaTagBot?startgroup=a'),
+                       Button.url('Kanal', 'https://t.me/PyBotLog')
                       ],
                       [
-                       Button.url('Sahibim 🖥️', 'https://t.me/Pyhchistion')
+                       Button.url('Sahibim', 'https://t.me/TheZentadi')
                       ],
                     ),
                     link_preview=False)
@@ -94,16 +94,16 @@ async def start(event):
 async def handler(event):
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await event.edit(f"**@TagAllPyBot, Grubunuzda Üyeleri Etiketleyerek Çağıra Bilirim.\nDestek için ==> /help", buttons=(
+     await event.edit(f"**@MinaTagBot, Grubunuzda Üyeleri Etiketleyerek Çağıra Bilirim.\nDestek için ==> /help", buttons=(
                       [
-                       Button.inline("🎛 Komutlar", data="komutlar")
+                       Button.inline("Komutlar", data="komutlar")
                       ],
                       [
-                       Button.url('Beni Grubuna Ekle ➕', 'https://t.me/TagAllPyBot?startgroup=a'),
-                       Button.url('Kanal 📣', 'https://t.me/PyBotLog')
+                       Button.url('Beni Grubuna Ekle', 'https://t.me/MinaTagBot?startgroup=a'),
+                       Button.url('Kanal', 'https://t.me/PyBotLog')
                       ],
                       [
-                       Button.url('Sahibim 🖥️', 'https://t.me/Pyhchistion')
+                       Button.url('Sahibim', 'https://t.me/TheZentadi')
                       ],
                     ),
                     link_preview=False)
@@ -387,7 +387,7 @@ async def son_durum(event):
     sender = await event.get_sender()
     if sender.id not in ozel_list:
       return
-    await event.respond(f"**@TagAllPyBot Güncel Verileri 🖥️**\n\n**Toplam Grub: `{len(grup_sayi)}`\n\nAnlık Çalışan Grub: `{len(anlik_calisan)}`**")
+    await event.respond(f"**@MinaTagBot Güncel Verileri 🖥️**\n\n**Toplam Grub: `{len(grup_sayi)}`\n\nAnlık Çalışan Grub: `{len(anlik_calisan)}`**")
 
 
 @client.on(events.NewMessage(pattern='^/reklam ?(.*)'))
@@ -421,86 +421,6 @@ async def duyuru(event):
     except:
       pass
   await event.respond(f"Gönderildi.")
-
-def ReplyCheck(message: Message):
-    reply_id = None
-
-    if message.reply_to_message:
-        reply_id = message.reply_to_message.message_id
-
-    elif not message.from_user.is_self:
-        reply_id = message.message_id
-
-    return reply_id
-
-
-infotext = (
-    "**[{full_name}](tg://user?id={user_id})**\n"
-    " * ID: `{user_id}`\n"
-    " * İlk adı: `{first_name}`\n"
-    " * Soyadı: `{last_name}`\n"
-    " * Kullanıcı adı: `{username}`\n"
-    " * Son Çevrimiçi: `{last_online}`\n"
-    " * Bio: {bio}"
-)
-
-
-def LastOnline(user: User):
-    if user.is_bot:
-        return ""
-    elif user.status == "recently":
-        return "Recently"
-    elif user.status == "within_week":
-        return "Within the last week"
-    elif user.status == "within_month":
-        return "Within the last month"
-    elif user.status == "long_time_ago":
-        return "A long time ago :("
-    elif user.status == "online":
-        return "Currently Online"
-    elif user.status == "offline":
-        return datetime.fromtimestamp(user.status.date).strftime(
-            "%a, %d %b %Y, %H:%M:%S"
-        )
-
-
-def FullName(user: User):
-    return user.first_name + " " + user.last_name if user.last_name else user.first_name
-
-
-@client.on(events.NewMessage(pattern='^/info ?(.*)'))
-async def info(client, message):
-    cmd = message.command
-    if not message.reply_to_message and len(cmd) == 1:
-        get_user = message.from_user.id
-    elif len(cmd) == 1:
-        get_user = message.reply_to_message.from_user.id
-    elif len(cmd) > 1:
-        get_user = cmd[1]
-        try:
-            get_user = int(cmd[1])
-        except ValueError:
-            pass
-    try:
-        user = await client.get_users(get_user)
-    except PeerIdInvalid:
-        await message.reply("O Kullanıcıyı tanımıyorum.")
-        return
-    desc = await client.get_chat(get_user)
-    desc = desc.description
-    await message.reply_text(
-        infotext.format(
-            full_name=FullName(user),
-            user_id=user.id,
-            user_dc=user.dc_id,
-            first_name=user.first_name,
-            last_name=user.last_name if user.last_name else "",
-            username=user.username if user.username else "",
-            last_online=LastOnline(user),
-            bio=desc if desc else "`Biyo kurulum yok.`",
-        ),
-        disable_web_page_preview=True,
-    )
 
 
 app.run()
