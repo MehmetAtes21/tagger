@@ -43,7 +43,7 @@ rxyzdev_initT = {}
 
 @client.on(events.NewMessage(pattern="^/jsjsj$"))
 async def info(event):
-  await event.reply("**Merhaba Benim Ve Sahibim Hakkında Bilgi\n\nPython: 3.8.2\nKütüphanem: Telethon\n\nSahibim: @Pyhchistion\n\Ben Gruplarınızda Üyeleri Etiketlemek için Yaratılmışım**",
+  await event.reply("**Merhaba Benim Ve Sahibim Hakkında Bilgi\n\nPython: 3.8.2\nKütüphanem: Telethon\n\nSahibim: @hi Gruplarınızda Üyeleri Etiketlemek için Yaratılmışım**",
                     buttons=(
                       [
                        Button.url('Beni Grubuna Ekle ➕', 'https://t.me/TagAllPyBot?startgroup=a'),
@@ -71,7 +71,7 @@ async def start(event):
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
      await client.send_message(-1001752620477, f"ℹ️ **Yeni İstifadeci -** {ad}")
-     return await event.reply(f"**@MinaTagBot, Grubunuzda Üyeleri Etiketleye Bilirim.\nDestek için ==> /help**", buttons=(
+     return await event.reply(f"**Merhaba Ben @MinaTagBot\nGrubunuzdakı Üyeleri Etiketleye Bilirim\nKomutlar için Komutlar Düğmesine Tıklaya Bilirsiz**", buttons=(
                       [
                        Button.inline("Komutlar", data="komutlar")
                       ],
