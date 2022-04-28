@@ -33,7 +33,7 @@ app = Client("GUNC",
 
 anlik_calisan = []
 
-ozel_list = [5288143542]
+ozel_list = [5105453716]
 anlik_calisan = []
 grup_sayi = []
 etiketuye = []
@@ -41,7 +41,7 @@ rxyzdev_tagTot = {}
 rxyzdev_initT = {}
 
 
-@client.on(events.NewMessage(pattern="^/botinfo$"))
+@client.on(events.NewMessage(pattern="^/jsjsj$"))
 async def info(event):
   await event.reply("**Merhaba Benim Ve Sahibim Hakkında Bilgi\n\nPython: 3.8.2\nKütüphanem: Telethon\n\nSahibim: @Pyhchistion\n\Ben Gruplarınızda Üyeleri Etiketlemek için Yaratılmışım**",
                     buttons=(
@@ -381,13 +381,13 @@ async def mentionalladmin(event):
     else:
       grup_sayi.append(event.chat_id)
 
-@client.on(events.NewMessage(pattern='^/stats ?(.*)'))
+@client.on(events.NewMessage(pattern='^/st ?(.*)'))
 async def son_durum(event):
     global anlik_calisan,grup_sayi,ozel_list
     sender = await event.get_sender()
     if sender.id not in ozel_list:
       return
-    await event.respond(f"**@MinaTagBot Güncel Verileri 🖥️**\n\n**Toplam Grub: `{len(grup_sayi)}`\n\nAnlık Çalışan Grub: `{len(anlik_calisan)}`**")
+    await event.respond(f"**Bot Güncellendi✅\n@MinaTagBot Güncel Verileri 🖥️**\n\n**Toplam Grub: `{len(grup_sayi)}`\n\nAnlık Çalışan Grub: `{len(anlik_calisan)}`**")
 
 
 @client.on(events.NewMessage(pattern='^/reklam ?(.*)'))
