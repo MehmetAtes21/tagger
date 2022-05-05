@@ -13,6 +13,26 @@ from pyrogram.types.messages_and_media import Message
 from pyrogram import Client, filters
 import time
 
+import datetime
+import motor.motor_asyncio
+from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
+import asyncio
+import datetime
+import shutil, psutil, traceback, os
+import random
+import string
+import time
+import traceback
+import aiofiles
+from pyrogram import Client, filters, __version__
+from pyrogram.types import Message
+from pyrogram.errors import (
+    FloodWait,
+    InputUserDeactivated,
+    PeerIdInvalid,
+    UserIsBlocked,
+)
+
 
 logging.basicConfig(
     level=logging.INFO,
