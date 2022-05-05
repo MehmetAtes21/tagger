@@ -494,7 +494,7 @@ async def delcmd_off(chat_id: int): # Grup için mesaj silme özeliğini kapatı
 ################# SAHİP KOMUTLARI #############
 
 # Verileri listeleme komutu
-@client.oin_message(filters.command("stats") & filters.user(OWNER_ID))
+@client.pin_message(filters.command("stats") & filters.user(OWNER_ID))
 async def botstats(bot: Client, message: Message):
     g4rip = await bot.send_message(message.chat.id, LAN.STATS_STARTED.format(message.from_user.mention))
     all_users = await db.get_all_users()
@@ -518,7 +518,7 @@ async def botstats(bot: Client, message: Message):
 
 
 # Botu ilk başlatan kullanıcıların kontrolünü sağlar.
-@client.oin_message()
+@client.pin_message()
 async def G4RIP(bot: Client, cmd: Message):
     await handle_user_status(bot, cmd)
 
