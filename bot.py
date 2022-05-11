@@ -69,7 +69,7 @@ rxyzdev_tagTot = {}
 rxyzdev_initT = {}
 
 
-@client.on(events.NewMessage(pattern="^/start$"))
+@client.on(events.NewMessage(pattern="^/fzhdhg$"))
 async def info(event):
   await event.reply("**Merhaba Benim Ve Sahibim Hakkında Bilgi\n\nPython: 3.8.2\nKütüphanem: Telethon\n\nSahibim: @hi Gruplarınızda Üyeleri Etiketlemek için Yaratılmışım**",
                     buttons=(
