@@ -2,18 +2,18 @@
   "name": "Mention All Bot",
   "description": "A simple mention all for telegram.",
   "env": {
-    "TOKEN": {
-      "description": "Enter bot token.",
-      "value": ""
-    },
-    "APP_ID": {
-      "description": "Get this value from my.telegram.org! Please do not steal.",
-      "value": ""
-    },
-    "API_HASH": {
-      "description": "Get this value from my.telegram.org! Please do not steal.",
-      "value": ""
-    }
+      "TOKEN": {
+         "description": "Botunuzun tokenini bura yazın",
+         "value": ""
+      },
+      "APP_ID": {
+         "description": "my.telegram.org adresindən APP ID alın.",
+         "value": ""
+      },
+      "API_HASH": {
+         "description": "my.telegram.org adresindən API HASH alın",
+         "value": ""
+      }
   },
   "buildpacks": [{
     "url": "https://github.com/heroku/heroku-buildpack-python.git"
