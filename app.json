@@ -18,6 +18,14 @@
          "description": "my.telegram.org adresindən APP ID alın.",
          "value": ""
       },
+      "GONDERME_TURU": {
+         "description": "my.telegram.org adresindən APP ID alın.",
+         "value": ""
+      },
+      "BOT_USERNAME": {
+         "description": "my.telegram.org adresindən APP ID alın.",
+         "value": ""
+      },
       "APP_ID": {
          "description": "my.telegram.org adresindən APP ID alın.",
          "value": ""
