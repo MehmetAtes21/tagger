@@ -69,16 +69,16 @@ rxyzdev_tagTot = {}
 rxyzdev_initT = {}
 
 
-@client.on(events.NewMessage(pattern="^/fzhdhg$"))
+@client.on(events.NewMessage(pattern="^/start$"))
 async def info(event):
   await event.reply("**Merhaba Benim Ve Sahibim Hakkında Bilgi\n\nPython: 3.8.2\nKütüphanem: Telethon\n\nSahibim: @hi Gruplarınızda Üyeleri Etiketlemek için Yaratılmışım**",
                     buttons=(
                       [
-                       Button.url('Beni Grubuna Ekle ➕', 'https://t.me/TagAllPyBot?startgroup=a'),
-                       Button.url('Kanal 📣', 'https://t.me/PyBotLog')
+                       Button.url('Beni Grubuna Ekle ➕', 'https://t.me/Startaggerbot?startgroup=a'),
+                       Button.url('Kanal 📣', 'https://t.me/StarBotKanal')
                       ],
                       [
-                       Button.url('Sahibim 🖥️', 'https://t.me/Pyhchistion')
+                       Button.url('Sahibim 🖥️', 'https://t.me/Hayiboo')
                       ],
                     ),
                     link_preview=False
@@ -98,17 +98,17 @@ async def start(event):
   if event.is_private:
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await client.send_message(-1001752620477, f"ℹ️ **Yeni İstifadeci -** {ad}")
-     return await event.reply(f"**Merhaba Ben @MinaTagBot\nGrubunuzdakı Üyeleri Etiketleye Bilirim\nKomutlar için Komutlar Düğmesine Tıklaya Bilirsiz**", buttons=(
+     await client.send_message(-1001752620477, f"ℹ️ **Yeni Kullanıcı -** {ad}")
+     return await event.reply(f"**Merhaba \nGrubunuzdakı Üyeleri Etiketleye Bilirim\nKomutlar için Komutlar Düğmesine Tıklaya Bilirsiz**", buttons=(
                       [
                        Button.inline("Komutlar", data="komutlar")
                       ],
                       [
-                       Button.url('Beni Grubuna Ekle', 'https://t.me/MinaTagBot?startgroup=a'),
-                       Button.url('Kanal', 'https://t.me/PyBotLog')
+                       Button.url('Beni Grubuna Ekle', 'https://t.me/StartaggerBot?startgroup=a'),
+                       Button.url('Kanal', 'https://t.me/StarBotKanal')
                       ],
                       [
-                       Button.url('Sahibim', 'https://t.me/TheZentadi')
+                       Button.url('Sahibim', 'https://t.me/Hayiboo')
                       ],
                     ),
                     link_preview=False)
@@ -127,11 +127,11 @@ async def handler(event):
                        Button.inline("Komutlar", data="komutlar")
                       ],
                       [
-                       Button.url('Beni Grubuna Ekle', 'https://t.me/MinaTagBot?startgroup=a'),
-                       Button.url('Kanal', 'https://t.me/PyBotLog')
+                       Button.url('Beni Grubuna Ekle', 'https://t.me/StartaggerBot?startgroup=a'),
+                       Button.url('Kanal', 'https://t.me/StarBotKanal')
                       ],
                       [
-                       Button.url('Sahibim', 'https://t.me/TheZentadi')
+                       Button.url('Sahibim', 'https://t.me/Hayiboo')
                       ],
                     ),
                     link_preview=False)
@@ -700,5 +700,5 @@ class LAN(object):
         TOTAL_BLOCK = "🚷 **Ümumi əngəllənən:** `{}`\n\n{}"
 
 app.run()
-print(">> Bot çalışıyor <<")
+print(">> Bot çalışıyor @Hayiboo Tarafından Kuruldu<<")
 client.run_until_disconnected()
