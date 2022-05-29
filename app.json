@@ -7,23 +7,23 @@
          "value": ""
       },
       "DATABASE_URL": {
-         "description": "my.telegram.org adresindən APP ID alın.",
+         "description": "MongoDB veritabanınizi girin .",
          "value": ""
       },
       "OWNER_ID": {
-         "description": "my.telegram.org adresindən APP ID alın.",
+         "description": "Hesabinizin İd'sini yazın.",
          "value": ""
       },
       "LOG_CHANNEL": {
-         "description": "my.telegram.org adresindən APP ID alın.",
+         "description": "Log Grubunun İd'sini yazın.",
          "value": ""
       },
       "GONDERME_TURU": {
-         "description": "my.telegram.org adresindən APP ID alın.",
+         "description": "Botunuzu Baslatiginda Kisiye Giden Mesaj .",
          "value": ""
       },
       "BOT_USERNAME": {
-         "description": "my.telegram.org adresindən APP ID alın.",
+         "description": "Botunuzun Kullanıcı Adını girin.",
          "value": ""
       },
       "APP_ID": {
