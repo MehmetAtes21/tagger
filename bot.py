@@ -71,19 +71,21 @@ rxyzdev_initT = {}
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def info(event):
-  await event.reply("**Merhaba Benim Ve Sahibim Hakkında Bilgi\n\nPython: 3.8.2\nKütüphanem: Telethon\n\nSahibim: @hi Gruplarınızda Üyeleri Etiketlemek için Yaratılmışım**",
+  await event.reply("**Merhaba Benim Ve Sahibim Hakkında Bilgi\n\nPython: 3.8.2\nKütüphanem: Telethon\n\nSahibim:  Gruplarınızda Üyeleri Etiketlemek için Yaratılmışım**",
                     buttons=(
                       [
-                       Button.url('Beni Grubuna Ekle ➕', 'https://t.me/Startaggerbot?startgroup=a'),
-                       Button.url('Kanal 📣', 'https://t.me/StarBotKanal')
+                       Button.url('Beni Grubuna Ekle ➕', 'https://t.me/Startaggerbot?startgroup=a')
                       ],
                       [
-                       Button.url('Sahibim 🖥️', 'https://t.me/Hayiboo')
+                       Button.url('📢 Kanal', 'https://t.me/StarBotKanal'),
+                       Button.url('🇹🇷 Sahibim', 'https://t.me/Hayiboo')
+                      ],
+                      [
+                       Button.url('🧑🏻‍💻 ɢɪᴛʜᴜʙ ᴋᴀʏɴᴀᴋ ᴋᴏᴅᴜ 🧑🏻‍💻', 'https://github.com/MehmetAtes21/Tagger')
                       ],
                     ),
                     link_preview=False
                    )
-
 
 @client.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event):
