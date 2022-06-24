@@ -74,14 +74,14 @@ async def info(event):
   await event.reply("**Merhaba Benim Ve Sahibim Hakkında Bilgi\n\nPython: 3.8.2\nKütüphanem: Telethon\n\nSahibim:  Gruplarınızda Üyeleri Etiketlemek için Yaratılmışım**",
                     buttons=(
                       [
-                       Button.url('Beni Grubuna Ekle ➕', 'https://t.me/Startaggerbot?startgroup=a')
+                       Button.url('Beni Grubuna Ekle ➕', 'http://t.me/HopTagger_Bot')
                       ],
                       [
-                       Button.url('📢 Kanal', 'https://t.me/StarBotKanal'),
-                       Button.url('🇹🇷 Sahibim', 'https://t.me/Hayiboo')
+                       Button.url('📢 Kanal', 'https://t.me/HopSupport'),
+                       Button.url('🇹🇷 Sahibim', '@SevimsizKral')
                       ],
                       [
-                       Button.url('🧑🏻‍💻 ɢɪᴛʜᴜʙ ᴋᴀʏɴᴀᴋ ᴋᴏᴅᴜ 🧑🏻‍💻', 'https://github.com/MehmetAtes21/Tagger')
+                       Button.url('🧑🏻‍💻 ɢɪᴛʜᴜʙ ᴋᴀʏɴᴀᴋ ᴋᴏᴅᴜ 🧑🏻‍💻', 'https://github.com/Sevimsiz01/Tagger')
                       ],
                     ),
                     link_preview=False
@@ -129,11 +129,11 @@ async def handler(event):
                        Button.inline("Komutlar", data="komutlar")
                       ],
                       [
-                       Button.url('Beni Grubuna Ekle', 'https://t.me/StartaggerBot?startgroup=a'),
-                       Button.url('Kanal', 'https://t.me/StarBotKanal')
+                       Button.url('Beni Grubuna Ekle', 'http://t.me/HopTagger_Bot'),
+                       Button.url('Kanal', 'https://t.me/HopSupport')
                       ],
                       [
-                       Button.url('Sahibim', 'https://t.me/Hayiboo')
+                       Button.url('Sahibim', 'https://t.me/SevimsizKral')
                       ],
                     ),
                     link_preview=False)
@@ -702,5 +702,5 @@ class LAN(object):
         TOTAL_BLOCK = "🚷 **Ümumi əngəllənən:** `{}`\n\n{}"
 
 app.run()
-print(">> Bot çalışıyor @Hayiboo Tarafından Kuruldu<<")
+print(">> Bot çalışıyor @SevimsizKral Tarafından Kuruldu<<")
 client.run_until_disconnected()
