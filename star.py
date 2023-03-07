@@ -1,3 +1,4 @@
+# İstek Üzerine Paylaşıldı , Hadi Biraz Sevinin .d
 import random
 import os, logging, asyncio
 from telethon import Button
