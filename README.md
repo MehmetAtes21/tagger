@@ -1,5 +1,5 @@
 # Update 💬
-### Yıldız
+### Takipte Kalın ve Yıldız Vermeyi Unutmayın Terbiyesizler ...
 
 ## Tagger Bot 🇹🇷
 ### [Tagger Bot](https://t.me/StarTaggerBot) Etiket Botu .
