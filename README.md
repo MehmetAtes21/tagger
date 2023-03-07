@@ -1,3 +1,5 @@
+# Update 💬
+
 ## Tagger Bot 🇹🇷
 ### [Tagger Bot](https://t.me/StarTaggerBot) Etiket Botu .
 
