@@ -54,8 +54,8 @@ async def start(event):
                       [
                        Button.url('🎉  𝖡𝖾𝗇𝗂 𝖦𝗋𝗎𝖻𝖺 𝖤𝗄𝗅𝖾  🎉', f'https://t.me/{USERNAME}?startgroup=a')],
                       [
-                       Button.url('📚  𝖪𝗈𝗆𝗎𝗍𝗅𝖺𝗋  ', f'https://t.me/Samilbots/69'),
-                       Button.url('👨‍💻  𝖮𝗐𝗇𝖾𝗋  ', f'https://t.me/Samilben')],
+                       Button.url('📚  𝖪𝗈𝗆𝗎𝗍𝗅𝖺𝗋  ', f'https://t.me/StrTagger'),
+                       Button.url('👨‍💻  𝖮𝗐𝗇𝖾𝗋  ', f'https://t.me/StarBotOwner')],
                        [Button.url('📝  𝖢𝗁𝖺𝗇𝗇𝖾𝗅  ', f'https://t.me/{support}')]
                     ),
                     link_preview=False)
@@ -72,8 +72,8 @@ async def handler(event):
      await event.edit(f"{ad} {startmesaj}", buttons=(
                       [
                        Button.url('🎉  𝖡𝖾𝗇𝗂 𝖦𝗋𝗎𝖻𝖺 𝖤𝗄𝗅𝖾  🎉', f'https://t.me/{USERNAME}?startgroup=a')],
-                      [Button.url("📚  𝖪𝗈𝗆𝗎𝗍𝗅𝖺𝗋  ", f'https://t.me/Samilbots/69'),
-                       Button.url('👨‍💻  𝖮𝗐𝗇𝖾𝗋  ', f'https://t.me/Samilben')]
+                      [Button.url("📚  𝖪𝗈𝗆𝗎𝗍𝗅𝖺𝗋  ", f'https://t.me/StarTagger'),
+                       Button.url('👨‍💻  𝖮𝗐𝗇𝖾𝗋  ', f'https://t.me/StarBotOwner')]
                        [Button.url('📝  𝖢𝗁𝖺𝗇𝗇𝖾𝗅  ', f'https://t.me/{support}')]
                     ),
                     link_preview=False)
@@ -83,7 +83,7 @@ async def handler(event):
 async def handler(event):
     await event.edit(f"{komutlar}", buttons=(
                       [
-                      Button.url('📣  𝖲𝗎𝗉𝗉𝗈𝗋𝗍  ', f'https://t.me/DeveloperSohbet'),
+                      Button.url('📣  𝖲𝗎𝗉𝗉𝗈𝗋𝗍  ', f'https://t.me/StarTagger'),
                       Button.url('🇹🇷  𝖮𝗐𝗇𝖾𝗋  ', f'https://t.me/{sahib}')
                       ],
                       [
@@ -284,6 +284,7 @@ emoji = " ❤️ 🧡 💛 💚 💙 💜 🖤 🤍 🤎 🙂 🙃 😉 😌 �
         "😻 😼 😽 🙀 😿 😾 ❄️ 🌺 🌨 🌩 ⛈ 🌧 ☁️ ☀️ 🌈 🌪 ✨ 🌟 ☃️ 🪐 🌏 🌙 🌔 🌚 🌝 🕊 🦩 🦦 🌱 🌿 ☘ 🍂 🌹 🥀 🌾 " \
         "🌦 🍃 🎋🦓 🐅 🐈‍⬛ 🐄 🦄 🐇 🐁 🐷 🐶 🙈 🙊 🐻 🐼 🦊 🐮 🐍 🐊 🦨 🦔 🐒 🦣 🦘 🦥 🦦 🦇 🦍 🐥 🐦 🦜 🕊️ 🦤 🦢 " \
         "🦩 🦚 🦃 🐣 🐓 🐬 🦈 🐠 🐳 🦗 🪳 🐝 🐞 🦋 🐟 🕷️ 🦑".split(" ")
+
 
 @client.on(events.NewMessage(pattern="^/etag ?(.*)"))
 async def etag(event):
