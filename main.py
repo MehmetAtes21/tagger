@@ -42,15 +42,15 @@ LOGGER = logging.getLogger(__name__)
 
 api_id = int(os.environ.get("APP_ID","18049084"))
 api_hash = os.environ.get("API_HASH","7e74b1e22026fcc291d32b3d431aa21e")
-bot_token = os.environ.get("TOKEN","6405498677:AAGYBI1_ix70ZKTouCFa9RQmpyo3F0dF64k")
-sahib = os.environ.get("sahib", "EpikOwner")
-BOT_ID = int(os.environ.get("BOT_ID", "6405498677"))
-DATABASE_URL = os.environ.get("DATABASE_URL","mongodb+srv://topicsema:offsema@cluster11.0shfbc3.mongodb.net/?retryWrites=true&w=majority") # MongoDB veritabanınızın url'si. Nasıl alacağınızı bilmiyorsanız destek grubu @RepoHaneX'e gelin.
-BOT_USERNAME = os.environ.get("BOT_USERNAME","EpikTaggerBot") # Botunuzun kullanıcı adı.
-LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL","-1001983841726")) # Botunuzun eylemleri kaydedeceği kayıt grubunun id'si.
-GROUP_SUPPORT = os.environ.get("GROUP_SUPPORT", "EpikDuyuru") # Botunuzdan yasaklanan kullanıcıların itiraz işlemleri için başvuracağı grup, kanal veya kullanıcı. Boş bırakırsanız otomatik olarak OWNER_ID kimliğine yönlendirecektir.
+bot_token = os.environ.get("TOKEN","") # Botunuzun Tokenini Girin.
+sahib = os.environ.get("sahib", "") # Sahiplik Hesabin Kullanıcı Adını Girin .
+BOT_ID = int(os.environ.get("BOT_ID", "")) # Botunuzun İd'si ( Tokenin Başındaki Rakamları ) Girin .
+DATABASE_URL = os.environ.get("DATABASE_URL","") # MongoDB veritabanınızın url'si.
+BOT_USERNAME = os.environ.get("BOT_USERNAME","") # Botunuzun kullanıcı adı.
+LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL","")) # Botunuzun eylemleri kaydedeceği kayıt grubunun id'si.
+GROUP_SUPPORT = os.environ.get("GROUP_SUPPORT", "") # Botunuzdan yasaklanan kullanıcıların itiraz işlemleri için başvuracağı grup, kanal veya kullanıcı. Boş bırakırsanız otomatik olarak OWNER_ID kimliğine yönlendirecektir.
 GONDERME_TURU = os.environ.get("GONDERME_TURU", True) # Botunuzun yanıtladığınız mesajı gönderme türü. Eğer direkt iletmek isterseniz False, kopyasını göndermek isterseniz True olarak ayarlayın.
-OWNER_ID = int(os.environ.get("OWNER_ID","6181368568")) # Sahip hesabın id'si
+OWNER_ID = int(os.environ.get("OWNER_ID","")) # Sahip hesabın id'si
 LANGAUGE = os.environ.get("LANGAUGE", "TR")
 
 client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
@@ -292,9 +292,9 @@ async def start(event):
      await event.reply(f"{ad} {startmesaj}", buttons=(
                       [Button.url('💌 ʙᴇɴɪ ɢʀᴜʙᴀ ᴇᴋʟᴇ 💌', f'https://t.me/{BOT_USERNAME}?startgroup=a')],
                       [
-                      Button.url("📚 ᴋᴏᴍᴜᴛʟᴀʀ", f'https://t.me/EpikDuyuru/6')
+                      Button.url("📚 ᴋᴏᴍᴜᴛʟᴀʀ", f'https://t.me/{GROUP_SUPPORT}')
                       ],[
-                      Button.url('👤 ᴏᴡɴᴇʀ', f'https://t.me/EpikOwner')
+                      Button.url('👤 ᴏᴡɴᴇʀ', f'https://t.me/{sahib}')
                       ]
                     ),
                     link_preview=False)
@@ -304,9 +304,9 @@ async def start(event):
     return await client.send_message(event.chat_id, f"👋🏻 **Merhaba**{startmesaj}", buttons=( 
                                                     [Button.url('💌 ʙᴇɴɪ ɢʀᴜʙᴀ ᴇᴋʟᴇ 💌', f'https://t.me/{BOT_USERNAME}?startgroup=a')],
                                                     [
-                                                    Button.url("📚 ᴋᴏᴍᴜᴛʟᴀʀ", f'https://t.me/EpikDuyuru/6')
+                                                    Button.url("📚 ᴋᴏᴍᴜᴛʟᴀʀ", f'https://t.me/{GROUP_SUPPORT}')
                                                     ],[
-                                                    Button.url('👤 ᴏᴡɴᴇʀ', f'https://t.me/EpikOwner')
+                                                    Button.url('👤 ᴏᴡɴᴇʀ', f'https://t.me/{sahib}')
                                                     ]
                                                   ),
                                                   link_preview=False)
@@ -320,9 +320,9 @@ async def start(event):
      await event.reply(f"{ad} {startmesaj}", buttons=(
                       [Button.url('💌 ʙᴇɴɪ ɢʀᴜʙᴀ ᴇᴋʟᴇ 💌', f'https://t.me/{BOT_USERNAME}?startgroup=a')],
                       [
-                      Button.url("📚 ᴋᴏᴍᴜᴛʟᴀʀ", f'https://t.me/EpikDuyuru/6')
+                      Button.url("📚 ᴋᴏᴍᴜᴛʟᴀʀ", f'https://t.me/{GROUP_SUPPORT}')
                       ],[
-                      Button.url('👤 ᴏᴡɴᴇʀ', f'https://t.me/EpikOwner')
+                      Button.url('👤 ᴏᴡɴᴇʀ', f'https://t.me/{sahib}')
                       ]
                     ),
                     link_preview=False)
