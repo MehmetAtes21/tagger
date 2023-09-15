@@ -258,30 +258,6 @@ async def cancel(event):
                     ),
                     link_preview=False)
 
-@client.on(events.callbackquery.CallbackQuery(data="cancel"))
-async def cancel(event):
-  global gece_tag
-  if event.is_private:
-    return await event.respond(f"{nogroup}")
-  
-  admins = []
-  async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
-    admins.append(admin.id)
-  if not event.sender_id in admins:
-    return await event.respond(f"{noadmin}")
-
-  global gece_tag
-  gece_tag.remove(event.chat_id)
-
-  sender = await event.get_sender()
-  rxyzdev_stopT = f"[{sender.first_name}](tg://user?id={sender.id})"      
-  if event.chat_id in rxyzdev_tagTot:await event.respond(f"**⛔ İşlem İptal Edildi .\n\n👤 Etiketlerin Sayısı : {rxyzdev_tagTot[event.chat_id]}\n🗣 İptal Eden : {rxyzdev_stopT}**", buttons=(
-                      [
-                      Button.url('💌 ʀᴇsᴍɪ ᴋᴀɴᴀʟ 💌', f'https://t.me/{GROUP_SUPPORT}')
-                      ]
-                    ),
-                    link_preview=False)
-
   
 # Başlanğıc Mesajı
 @client.on(events.NewMessage(pattern="^/start$"))
