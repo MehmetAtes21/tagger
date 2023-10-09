@@ -274,19 +274,7 @@ async def start(event):
                       ]
                     ),
                     link_preview=False)
-
-
-  if event.is_group:
-    return await client.send_message(event.chat_id, f"👋🏻 **Merhaba**{startmesaj}", buttons=( 
-                                                    [Button.url('💌 ʙᴇɴɪ ɢʀᴜʙᴀ ᴇᴋʟᴇ 💌', f'https://t.me/{BOT_USERNAME}?startgroup=a')],
-                                                    [
-                                                    Button.url("📚 ᴋᴏᴍᴜᴛʟᴀʀ", f'https://t.me/{GROUP_SUPPORT}')
-                                                    ],[
-                                                    Button.url('👤 ᴏᴡɴᴇʀ', f'https://t.me/{sahib}')
-                                                    ]
-                                                  ),
                                                   link_preview=False)
-
 # Başlanğıc Button
 @client.on(events.NewMessage(pattern="^/help$"))
 async def start(event):
@@ -302,44 +290,6 @@ async def start(event):
                       ]
                     ),
                     link_preview=False)
-
-#########################
-
-@app.on_message(filters.new_chat_members, group=1)
-async def hg(bot: Client, msg: Message):
-    for new_user in msg.new_chat_members:
-        if str(new_user.id) == str(BOT_ID):
-            await msg.reply(
-                f'''**📖 Hey , {msg.from_user.mention}\nBeni Gruba Eklediğin İçin Teşekkürler .**''', 
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⚙️ Daha Fazla Bilgi", url=f"https://t.me/{BOT_USERNAME}?start")]])
-    )
-        elif str(new_user.id) == str(OWNER_ID):
-            await msg.reply('📣 𝖡𝗈𝗍𝗎𝗇 𝖲𝖺𝗁𝗂𝖻𝗂 𝖦𝗋𝗎𝖻𝖺 𝖪𝖺𝗍ı𝗅𝖽ı !')
-
-
-# Eros oku
-
-@app.on_message(filters.command(["eros"],["/", ""]) & ~filters.private & ~filters.channel)
-async def ship(c:Client, m:Message):
-    users = await c.get_chat_members(m.chat.id, limit=200)
-    
-    users_l = []
-    for user in users:
-        if user.user.is_bot or user.user.is_deleted:
-            pass
-        else:
-            users_l.append(user.user)
-    count = len(users_l)
-    
-    ilk = users_l[randint(0,count)]
-    iki = users_l[randint(0,count)]
-    
-    if ilk.id==1550788256 or ilk.id==5576614947 or iki.id==5375589992 or iki.id==5576614947:
-        await m.reply(f"**💌 Eros'un oku atıldı.\n• Aşıklar  :\n\n[ ✍🏻 ](tg://user?id=5053767281) ❤️ [ . ](tg://user?id=5533927130)**")
-        
-    else:
-        await m.reply(f"**💌 Eros'un oku atıldı.\n• Aşıklar  :\n\n{ilk.mention} ❣️ {iki.mention}**")
-
 
 ################### VERİTABANI VERİ GİRİŞ ÇIKIŞI #########################
 class Database: 
