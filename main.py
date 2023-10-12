@@ -141,71 +141,7 @@ async def tag(event):
                     link_preview=False)
         
 #################
-@client.on(events.NewMessage(pattern="^/atag ?(.*)"))
-async def mentionalladmin(event):
-  global anlik_calisan
-  if event.is_private:
-    return await event.respond("**• Komutlar Sadece Grublarda Kullanılabilir .**")
-  
-  admins = []
-  async for admin in client.iter_participants(event.chat_id):
-    admins.append(admin.id)
-  if not event.sender_id in admins:
-    return await event.respond("**• Üzgünüm Ama Yönetici Değilsiniz .**")
-  
-  if event.pattern_match.group(1):
-    mode = "text_on_cmd"
-    msg = event.pattern_match.group(1)
-  elif event.reply_to_msg_id:
-    mode = "text_on_reply"
-    msg = event.reply_to_msg_id
-    if msg == None:
-        return await event.respond("**Eski Mesajlar için Üyelerden Bahsedemem! (gruba eklemeden önce gönderilen mesajlar)**")
-  elif event.pattern_match.group(1) and event.reply_to_msg_id:
-    return await event.respond("**Bana Bir Metin Ver!**")
-  else:
-    return await event.respond("**💬 Bir Mesaj Verin .**\n**veya** /atag ⬅️ **tıklayın**")
-  
-  if mode == "text_on_cmd":
-    anlik_calisan.append(event.chat_id)
-    usrnum = 0
-    usrtxt = ""
-    await event.respond("**✅ Etiketleme İşlemi Başarıyla Başlatıldı .**", buttons=(
-                      [
-                      Button.url('💌 ʀᴇsᴍɪ ᴋᴀɴᴀʟ 💌', f'https://t.me/{GROUP_SUPPORT}')
-                      ]
-                    ),
-                    link_preview=False)
-  
-    async for usr in client.iter_participants(event.chat_id,filter=ChannelParticipantsAdmins):
-      usrnum += 1
-      usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) , "
-      if event.chat_id not in anlik_calisan:
-        await event.respond("**⛔ İşlem İptal Edildi .**", buttons=(
-                      [
-                      Button.url('💌 ʀᴇsᴍɪ ᴋᴀɴᴀʟ 💌', f'https://t.me/{GROUP_SUPPORT}')
-                      ]
-                    ),
-                    link_preview=False)
-        return
-      if usrnum == 5:
-        await client.send_message(event.chat_id, f"**📢 {msg}\n\n{usrtxt}**")
-        await asyncio.sleep(3)
-        usrnum = 0
-        usrtxt = ""
 
-    sender = await event.get_sender()
-    rxyzdev_initT = f"[{sender.first_name}](tg://user?id={sender.id})"
-    if event.chat_id in rxyzdev_tagTot:await event.respond(f"**✅ İşlem Tamamlandı .**", buttons=(
-                      [
-                      Button.url('💌 ʀᴇsᴍɪ ᴋᴀɴᴀʟ 💌', f'https://t.me/{GROUP_SUPPORT}')
-                      ]
-                    ),
-                    link_preview=False)
-
-
-
-###################
 
 #etiket işlemini iptal
 @client.on(events.NewMessage(pattern='^(?i)/cancel'))
@@ -233,31 +169,6 @@ async def cancel(event):
                     link_preview=False)
 
 
-
-@client.on(events.callbackquery.CallbackQuery(data="cancel"))
-async def cancel(event):
-  global gece_tag
-  if event.is_private:
-    return await event.respond(f"{nogroup}")
-  
-  admins = []
-  async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
-    admins.append(admin.id)
-  if not event.sender_id in admins:
-    return await event.respond(f"{noadmin}")
-
-  global gece_tag
-  gece_tag.remove(event.chat_id)
-
-  sender = await event.get_sender()
-  rxyzdev_stopT = f"[{sender.first_name}](tg://user?id={sender.id})"      
-  if event.chat_id in rxyzdev_tagTot:await event.respond(f"**⛔ İşlem İptal Edildi .\n\n👤 Etiketlerin Sayısı : {rxyzdev_tagTot[event.chat_id]}\n🗣 İptal Eden : {rxyzdev_stopT}**", buttons=(
-                      [
-                      Button.url('💌 ʀᴇsᴍɪ ᴋᴀɴᴀʟ 💌', f'https://t.me/{GROUP_SUPPORT}')
-                      ]
-                    ),
-                    link_preview=False)
-
   
 # Başlanğıc Mesajı
 @client.on(events.NewMessage(pattern="^/start$"))
@@ -275,41 +186,8 @@ async def start(event):
                     ),
                     link_preview=False)
                                                   link_preview=False)
-# Başlanğıc Button
-@client.on(events.NewMessage(pattern="^/help$"))
-async def start(event):
-  if event.is_private:
-    async for usr in client.iter_participants(event.chat_id):
-     ad = f"**👋🏻 Merhaba**"
-     await event.reply(f"{ad} {startmesaj}", buttons=(
-                      [Button.url('💌 ʙᴇɴɪ ɢʀᴜʙᴀ ᴇᴋʟᴇ 💌', f'https://t.me/{BOT_USERNAME}?startgroup=a')],
-                      [
-                      Button.url("📚 ᴋᴏᴍᴜᴛʟᴀʀ", f'https://t.me/{GROUP_SUPPORT}')
-                      ],[
-                      Button.url('👤 ᴏᴡɴᴇʀ', f'https://t.me/{sahib}')
-                      ]
-                    ),
-                    link_preview=False)
 
 ################### VERİTABANI VERİ GİRİŞ ÇIKIŞI #########################
-class Database: 
-    def __init__(self, uri, database_name):
-        self._client = motor.motor_asyncio.AsyncIOMotorClient(uri)
-        self.db = self._client[database_name]
-        self.col = self.db.users
-
-    def new_user(self, id): # Veritabanına yeni kullanıcı ekler
-        return dict(
-            id=id,
-            join_date=datetime.date.today().isoformat(),
-            ban_status=dict(
-                is_banned=False,
-                ban_duration=0,
-                banned_on=datetime.date.max.isoformat(),
-                ban_reason="",
-            ),
-        )
-
     async def add_user(self, id): # Veritabına yeni kullanıcı eklemek için ön def
         user = self.new_user(id)
         await self.col.insert_one(user)
@@ -489,45 +367,6 @@ async def delcmd_off(chat_id: int): # Grup için mesaj silme özeliğini kapatı
     return await delcmdmdb.insert_one({"chat_id": chat_id})
 
 ################# SAHİP KOMUTLARI #############
-# Verileri listeleme komutu
-@app.on_message(filters.command("stats") & filters.user(OWNER_ID))
-async def botstats(bot: Client, message: Message):
-    g4rip = await bot.send_message(message.chat.id, LAN.STATS_STARTED.format(message.from_user.mention))
-    all_users = await db.get_all_users()
-    groups = 0
-    pms = 0
-    async for user in all_users:
-        if str(user["id"]).startswith("-"):
-            groups += 1
-        else:
-            pms += 1
-    total, used, free = shutil.disk_usage(".")
-    total = humanbytes(total)
-    used = humanbytes(used)
-    free = humanbytes(free)
-    cpu_usage = psutil.cpu_percent()
-    ram_usage = psutil.virtual_memory().percent
-    disk_usage = psutil.disk_usage("/").percent
-    total_users = await db.total_users_count()
-    await g4rip.edit(text=LAN.STATS.format(BOT_USERNAME, total_users, groups, pms, total, used, disk_usage, free, cpu_usage, ram_usage, __version__), parse_mode="md")
-
-
-
-# Botu ilk başlatan kullanıcıların kontrolünü sağlar.
-@app.on_message()
-async def G4RIP(bot: Client, cmd: Message):
-    await handle_user_status(bot, cmd)
-
-
-
-# Broadcast komutu
-@app.on_message(filters.command("broadcast") & filters.user(OWNER_ID) & filters.reply)
-async def broadcast_handler_open(_, m: Message):
-    await main_broadcast_handler(m, db)
-
-
-
-# Bir kullanıcı yasaklama komutu
 @app.on_message(filters.command("block") & filters.user(OWNER_ID))
 async def ban(c: Client, m: Message):
     if m.reply_to_message:
@@ -633,40 +472,6 @@ def humanbytes(size):
     return str(round(size, 2)) + " " + dict_power_n[raised_to_pow] + "B"
 
 
-
-########### ÇOKLU DİL ##############
-class LAN(object):
-
-    if LANGAUGE == "TR":
-
-        BILDIRIM = "**🏷 Kullanıcı : {}\n📮 ID : {}\n🧝🏻‍♂️ Profili : [{}](tg://user?id={})**"
-        GRUP_BILDIRIM = "**🏷 Kullanıcı : {}\n📮 ID : {}\n🧝🏻‍♂️ Profili : [{}](tg://user?id={})\n💬 Grub : {}\n🌟 Grub ID: {}\n🎲 Mesaj Linki : [Buraya Tıkla](https://t.me/c/{}/{})**"
-        SAHIBIME = "sahibime"
-        PRIVATE_BAN = "Üzgünüm, yasaklandınız! Bunun bir hata olduğunu düşünyorsanız {} yazın."
-        GROUP_BAN = "Üzgünüm, grubunuz karalisteye alındı! Burada daha fazla kalamam. Bunun bir hata olduğunu düşünyorsanız {} yazın.'"
-        NOT_ONLINE = "aktif değil"
-        BOT_BLOCKED = "botu engellemiş"
-        USER_ID_FALSE = "kullanıcı kimliği yanlış"
-        BROADCAST_STARTED = "```📤 BroadCast başlatıldı! Bittiği zaman mesaj alacaksınız!"
-        BROADCAST_STOPPED = "✅ ```Broadcast başarıyla tamamlandı.``` \n\n**Şu Kadar Sürede Tamamlandı:** `{}` \n\n**Kayıtlı Toplam Kullanıcı:** `{}` \n\n**Toplam Gönderme Denemesi:** `{}` \n\n**Başarıyla Gönderilen:** `{}` \n\n**Toplam Hata:** `{}`"
-        STATS_STARTED = "{} **Lütfen bekleyiniz verileri getiriyorum!**"
-        STATS = """**@{} Verileri**\n\n**Kullanıcılar;**\n» **Toplam Sohbetler:** `{}`\n» **Toplam Gruplar: `{}`\n» **Toplam PM's: `{}`"""
-        BAN_REASON = "Bu sebep yasaklandığınız için @{} tarafından otomatik olarak oluşturulmuştur"
-        NEED_USER = "**Lütfen Kullanıcı kimliği verin.**"
-        BANNED_GROUP = "🚷 **Yasaklandı!\n\nTarafından:** {}\n**Grup ID:** `{}` \n**Süre:** `{}` \n**Sebep:** `{}`"
-        AFTER_BAN_GROUP = "**Üzgünüm grubunuz kara listeye alındı! \n\nSebep:** `{}`\n\n**Daha fazla burada kalamam. Bunun bir hata olduğunu düşünüyorsanız destek grubuna gelin.**"
-        GROUP_BILGILENDIRILDI = "\n\n✅ **Grubu bilgilendirdim ve gruptan ayrıldım.**"
-        GRUP_BILGILENDIRILEMEDI = "\n\n❌ **Grubu bilgilendirmeye çalışırken bir hata oluştu:** \n\n`{}`"
-        USER_BANNED = "🚷 **Yasaklandı! \n\nTarafından:** {}\n **Kullanıcı ID:** `{}` \n**Süre:** `{}` \n**Sebep:** `{}`"
-        AFTER_BAN_USER = "**Üzgünüm kara listeye alındınız! \n\nSebep:** `{}`\n\n**Bundan sonra size hizmet veremeyeceğim.**"
-        KULLANICI_BILGILENDIRME = "\n\n✅ Kişiyi bilgilendirdim."
-        KULLANICI_BILGILENDIRMEME = "\n\n❌ **Kişiyi bilgilendirmeye çalışırken bir hata oluştu:** \n\n`{}`"
-        UNBANNED_USER = "🆓 **Kullanıcının Yasağı Kaldırıldı !** \nTarafından: {} \n**Kullanıcı ID:**{}"
-        USER_UNBAN_NOTIFY = "🎊 Müjde! Yasağınız kaldırıldı!"
-        BLOCKS = "🆔 **Kullanıcı ID**: `{}`\n⏱ **Süre**: `{}`\n🗓 **Yasaklanan Tarih**: `{}`\n💬 **Sebep**: `{}`\n\n"
-        TOTAL_BLOCK = "🚷 **Toplam Yasaklanan:** `{}`\n\n{}"
-
-        
 app.run()
 print(" Bot çalışıyor :)")
 client.run_until_disconnected()
